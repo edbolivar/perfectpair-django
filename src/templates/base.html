@@ -16,8 +16,8 @@
         margin-top: 1%!important;
         margin-right: 5px!important;
       }
-      .con{
-        max-width: 100%;
+      #secondnav  {
+        max-width: 80%;
       }
     </style>
   </head>
@@ -32,7 +32,7 @@
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       {% if user.is_authenticated %}
-      <div class="container con" id="secondnav"> 
+      <div class="container" id="secondnav"> 
       {% else %}
       <div class="container" id="secondnav">
       {% endif %}
@@ -40,7 +40,7 @@
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
-          <div class="collapse navbar-collapse" id="navbakrNavDropdown">
+          <div class="collapse navbar-collapse con" id="navbakrNavDropdown">
             <ul class="navbar-nav">
               <li>
                 <form class="form-inline my-2 my-lg-0" action='/shoe/s'>
