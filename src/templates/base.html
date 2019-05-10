@@ -16,8 +16,11 @@
         margin-top: 1%!important;
         margin-right: 5px!important;
       }
-      #secondnav  {
-        max-width: 80%;
+      .con1{
+        margin-left: 27%;
+      }
+      .con2{
+        margin-left: 17%;
       }
     </style>
   </head>
@@ -32,9 +35,9 @@
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       {% if user.is_authenticated %}
-      <div class="container" id="secondnav"> 
+      <div class="con2" id="secondnav"> 
       {% else %}
-      <div class="container" id="secondnav">
+      <div class="con1" id="secondnav">
       {% endif %}
           
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
