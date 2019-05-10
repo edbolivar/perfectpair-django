@@ -19,13 +19,16 @@
     </thead>
 
     <tbody>
+    {% for shoe in shoe_list %}
         <tr>
         <th scope="row">1</th>
         <td>{{ system }}</td>
-        <td>Adi Boost</td>
-        <td>10</td>
-        <td>$120</td>
+        <td>{{shoe.name}}</td>
+        <td>{{shoe.stock}}</td>
+        <td>{{shoe.price}}</td>
         </tr>
+    {% endfor %}
+
     </tbody>
     </table>
 

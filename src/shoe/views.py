@@ -1,5 +1,6 @@
 from django.db.models import Q
 from .models import Shoe
+from cart.models import Cart
 from django.shortcuts import render
 from django.shortcuts import get_object_or_404
 
@@ -31,12 +32,20 @@ def liked_list(request):
 	return render(request, 'shoe/liked_list.html', context)
 
 
-def cart_list(request):
-    	
-	system = request.POST.get('cart', None)
+def cart_list(request, shoe_id):
 
-	# shoe_list = Shoe.objects.all()
+	system = request.POST.get('cart', None)
+	shoe = get_object_or_404(Shoe, pk=shoe_id)
+	cart = Cart.objects.get(pk=2)
+	cart.products.add(shoe)
+	cart.save()
+	shoe_list = []
+	for shoe in cart.products.all():
+		print(shoe)
+		shoe_list.append(shoe)
+	print(shoe_list)
 	
+	# shoe_list = Shoe.objects.all()
 	context = {
 		'shoe_list': shoe_list,
 		'system': system,
