@@ -1,0 +1,500 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"prod",
+				"products"
+			],
+			[
+				"c_",
+				"c_slug"
+			],
+			[
+				"Prod",
+				"ProductAdmin"
+			],
+			[
+				"Cate",
+				"CategoryAdmin"
+			],
+			[
+				"url",
+				"urlpatterns"
+			],
+			[
+				"stati",
+				"staticfiles"
+			],
+			[
+				"min-",
+				"min-height\tproperty"
+			],
+			[
+				"add",
+				"addClass"
+			],
+			[
+				"box-",
+				"box-shadow\tproperty"
+			],
+			[
+				"pad",
+				"padding-top\tproperty"
+			],
+			[
+				"border-bo",
+				"border-bottom\tproperty"
+			],
+			[
+				"prev",
+				"prevSlide"
+			],
+			[
+				"next",
+				"nextSlide"
+			],
+			[
+				"rgb",
+				"rgba()\tbackground"
+			],
+			[
+				"f",
+				"f06226"
+			],
+			[
+				"Ques",
+				"QuestionAdmin"
+			],
+			[
+				"Sect",
+				"SectionAdmin"
+			],
+			[
+				"do",
+				"do_test"
+			],
+			[
+				"que",
+				"question_od"
+			],
+			[
+				"sec",
+				"section_id"
+			],
+			[
+				"student",
+				"student_detail"
+			],
+			[
+				"User",
+				"UserAdmin"
+			],
+			[
+				"Cour",
+				"CourseAdmin"
+			],
+			[
+				"cour",
+				"course_add"
+			],
+			[
+				"cou",
+				"course_id"
+			],
+			[
+				"pl",
+				"play_around"
+			],
+			[
+				"use",
+				"username"
+			],
+			[
+				"aut",
+				"authenticate"
+			],
+			[
+				"api",
+				"api_request"
+			],
+			[
+				"in",
+				"input\tTag"
+			],
+			[
+				"al",
+				"alert"
+			],
+			[
+				"LI",
+				"ListForm"
+			],
+			[
+				"all",
+				"all_items"
+			],
+			[
+				"get",
+				"get_object_or_404"
+			],
+			[
+				"UserProi",
+				"UserProfileManager"
+			],
+			[
+				"T",
+				"TweetModelSerializer"
+			],
+			[
+				"reverse",
+				"reverse_lazy"
+			],
+			[
+				"Twee",
+				"TweetCreateView"
+			],
+			[
+				"Tweet",
+				"TweetDetailView"
+			],
+			[
+				"Crea",
+				"CreateView"
+			],
+			[
+				"val",
+				"validate_content"
+			],
+			[
+				"TweetModel",
+				"TweetModelForm"
+			],
+			[
+				"Twe",
+				"TweetModelAdmin"
+			],
+			[
+				"obj",
+				"objects"
+			],
+			[
+				"tee",
+				"tweet_detail_view"
+			],
+			[
+				"BlogPost",
+				"BlogPostSerializer"
+			],
+			[
+				"Http",
+				"HttpResponseRedirect"
+			],
+			[
+				"r",
+				"reverse"
+			],
+			[
+				"post",
+				"post_detail"
+			],
+			[
+				"Post",
+				"PostModelForm"
+			],
+			[
+				"list",
+				"list-view"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/Users/alejandrogarcia/Desktop/shoe-ecommerce/perfectpair"
+	],
+	"file_history":
+	[
+		"/Users/alejandrogarcia/Desktop/django_eccom/venv/perfectcushion/shop/perfectpair",
+		"/Users/alejandrogarcia/Desktop/django_eccom/venv/perfectcushion/shop/context_processors.py",
+		"/Users/alejandrogarcia/Desktop/django_eccom/venv/perfectcushion/shop/templates/shop/category.html",
+		"/Users/alejandrogarcia/Desktop/django_eccom/venv/perfectcushion/shop/views.py",
+		"/Users/alejandrogarcia/Downloads/diner/blog.html",
+		"/Users/alejandrogarcia/Desktop/django_eccom/venv/perfectcushion/shop/models.py",
+		"/Users/alejandrogarcia/Desktop/django_eccom/venv/perfectcushion/shop/templates/shop/navbar.html",
+		"/Users/alejandrogarcia/Desktop/django_eccom/venv/perfectcushion/shop/templates/shop/base.html",
+		"/Users/alejandrogarcia/Desktop/django_eccom/venv/perfectcushion/perfectcushion/settings.py",
+		"/Users/alejandrogarcia/Desktop/django_eccom/venv/perfectcushion/perfectcushion/urls.py",
+		"/Users/alejandrogarcia/Desktop/django_eccom/venv/perfectcushion/shop/urls.py",
+		"/Users/alejandrogarcia/Desktop/django_eccom/venv/perfectcushion/shop/templates/shop/footer.html",
+		"/Users/alejandrogarcia/Desktop/django_eccom/venv/perfectcushion/shop/templates/header.html",
+		"/Users/alejandrogarcia/Desktop/django_eccom/venv/perfectcushion/shop/admin.py",
+		"/Users/alejandrogarcia/Desktop/pgallery/js/script.js",
+		"/Users/alejandrogarcia/Desktop/pgallery/css/style.css",
+		"/Users/alejandrogarcia/Desktop/pgallery/index.html",
+		"/Users/alejandrogarcia/Desktop/pgallery/js/script.css",
+		"/Users/alejandrogarcia/Desktop/linkIt/jquery.linkIt/jquery.linkIt.js",
+		"/Users/alejandrogarcia/Desktop/linkIt/index.html",
+		"/Users/alejandrogarcia/Desktop/linkIt/jquery.linkIt/linkIt.jquery.json",
+		"/Users/alejandrogarcia/Downloads/thumbslider/thumbslider/js/script.js",
+		"/Users/alejandrogarcia/Downloads/thumbslider/thumbslider/css/style.css",
+		"/Users/alejandrogarcia/Downloads/thumbslider/thumbslider/index.html",
+		"/Users/alejandrogarcia/Downloads/faq_slider/faqslider/js/script.js",
+		"/Users/alejandrogarcia/Downloads/faq_slider/faqslider/css/style.css",
+		"/Users/alejandrogarcia/Downloads/faq_slider/faqslider/index.html",
+		"/Users/alejandrogarcia/Downloads/Program Files 5/searchvidz/index.html",
+		"/Users/alejandrogarcia/Downloads/Program Files 5/searchvidz/js/script.js",
+		"/Users/alejandrogarcia/Downloads/Program Files 2/searchvidz/js/script.js",
+		"/Users/alejandrogarcia/Downloads/Program Files 2/searchvidz/css/style.css",
+		"/Users/alejandrogarcia/Downloads/Program Files 2/searchvidz/index.html",
+		"/Users/alejandrogarcia/Downloads/Program Files/contentslider/css/style.css",
+		"/Users/alejandrogarcia/Downloads/Program Files/contentslider/js/script.js",
+		"/Users/alejandrogarcia/Downloads/Program Files/contentslider/index.html",
+		"/Users/alejandrogarcia/Desktop/dev1/index.html",
+		"/Users/alejandrogarcia/Desktop/dev1/js/jquery-3.4.0.min.js",
+		"/Users/alejandrogarcia/Desktop/simplequiz/index.html",
+		"/Users/alejandrogarcia/Desktop/simplequiz/js/script.js",
+		"/Users/alejandrogarcia/Desktop/simplequiz/css/style.css",
+		"/Users/alejandrogarcia/Desktop/e-learning_django/elearning/courses/admin.py",
+		"/Users/alejandrogarcia/Desktop/e-learning_django/elearning/elearning/urls.py",
+		"/Users/alejandrogarcia/Desktop/testing.html",
+		"/Users/alejandrogarcia/Desktop/e-learning_django/elearning/students/models.py",
+		"/Users/alejandrogarcia/Desktop/e-learning_django/elearning/courses/models.py",
+		"/Users/alejandrogarcia/Desktop/e-learning_django/elearning/students/views.py",
+		"/Users/alejandrogarcia/Desktop/e-learning_django/elearning/courses/templates/courses/do_test.html",
+		"/Users/alejandrogarcia/Desktop/e-learning_django/elearning/courses/templates/courses/do_section.html",
+		"/Users/alejandrogarcia/Desktop/e-learning_django/elearning/courses/templates/courses/show_results.html",
+		"/Users/alejandrogarcia/Desktop/e-learning_django/elearning/templates/base.html",
+		"/Users/alejandrogarcia/Desktop/e-learning_django/elearning/courses/views.py",
+		"/Users/alejandrogarcia/Desktop/e-learning_django/elearning/courses/templates/courses/course_list.html",
+		"/Users/alejandrogarcia/Desktop/e-learning_django/elearning/courses/templates/courses/course_form.html",
+		"/Users/alejandrogarcia/Desktop/e-learning_django/elearning/students/admin.py",
+		"/Users/alejandrogarcia/Desktop/e-learning_django/elearning/students/templates/students/student_detail.html",
+		"/Users/alejandrogarcia/Desktop/e-learning_django/elearning/courses/forms.py",
+		"/Users/alejandrogarcia/Desktop/e-learning_django/elearning/courses/templates/courses/hello.html",
+		"/Users/alejandrogarcia/Desktop/e-learning_django/elearning/elearning/settings.py",
+		"/Users/alejandrogarcia/Desktop/django-admin-proj/my_auth/authenticate/templates/authenticate/play_around.html",
+		"/Users/alejandrogarcia/Desktop/django-admin-proj/my_auth/authenticate/views.py",
+		"/Users/alejandrogarcia/Desktop/django-admin-proj/my_auth/authenticate/templates/authenticate/edit_profile.html",
+		"/Users/alejandrogarcia/Desktop/django-admin-proj/my_auth/authenticate/urls.py",
+		"/Users/alejandrogarcia/Desktop/django-admin-proj/my_auth/authenticate/templates/authenticate/base.html",
+		"/Users/alejandrogarcia/Desktop/django-admin-proj/my_auth/authenticate/templates/authenticate/home.html",
+		"/Users/alejandrogarcia/Desktop/django-admin-proj/my_auth/authenticate/forms.py",
+		"/Users/alejandrogarcia/Desktop/django-admin-proj/my_auth/authenticate/templates/authenticate/register.html",
+		"/Users/alejandrogarcia/Desktop/django-admin-proj/my_auth/authenticate/templates/authenticate/login.html",
+		"/Users/alejandrogarcia/Desktop/django-admin-proj/my_auth/my_auth/settings.py",
+		"/Users/alejandrogarcia/Desktop/django-admin-proj/my_auth/my_auth/urls.py",
+		"/Users/alejandrogarcia/Desktop/django-crypto/mysite/crypto/templates/base.html",
+		"/Users/alejandrogarcia/Desktop/django-crypto/mysite/crypto/templates/home.html",
+		"/Users/alejandrogarcia/Desktop/django-crypto/mysite/crypto/views.py",
+		"/Users/alejandrogarcia/Desktop/django-crypto/mysite/crypto/templates/prices.html",
+		"/Users/alejandrogarcia/Desktop/django-crypto/mysite/crypto/urls.py",
+		"/Users/alejandrogarcia/Desktop/django-crypto/mysite/mysite/settings.py",
+		"/Users/alejandrogarcia/Desktop/django-crypto/mysite/mysite/urls.py",
+		"/Users/alejandrogarcia/Desktop/DjangoStuff/my_app/todo_list/templates/edit.html",
+		"/Users/alejandrogarcia/Desktop/DjangoStuff/my_app/todo_app/urls.py",
+		"/Users/alejandrogarcia/Desktop/DjangoStuff/my_app/todo_list/views.py",
+		"/Users/alejandrogarcia/Desktop/DjangoStuff/my_app/todo_list/forms.py",
+		"/Users/alejandrogarcia/Desktop/DjangoStuff/my_app/todo_list/templates/home.html",
+		"/Users/alejandrogarcia/Desktop/DjangoStuff/my_app/todo_list/templates/base.html",
+		"/Users/alejandrogarcia/Desktop/DjangoStuff/my_app/todo_list/models.py",
+		"/Users/alejandrogarcia/Desktop/DjangoStuff/my_app/todo_list/templates/about.html",
+		"/Users/alejandrogarcia/Desktop/DjangoStuff/my_app/todo_list/admin.py",
+		"/Users/alejandrogarcia/Desktop/DjangoStuff/my_app/todo_list/urls.py",
+		"/Users/alejandrogarcia/Desktop/DjangoStuff/my_app/todo_app/settings.py",
+		"/Users/alejandrogarcia/Desktop/DjangoStuff/my_app/static/css/my_style.css",
+		"/Users/alejandrogarcia/Desktop/tweetme/src/accounts/urls.py",
+		"/Users/alejandrogarcia/Desktop/tweetme/src/accounts/admin.py",
+		"/Users/alejandrogarcia/Desktop/tweetme/src/accounts/models.py",
+		"/Users/alejandrogarcia/Desktop/tweetme/src/tweetme/urls.py",
+		"/Users/alejandrogarcia/Desktop/tweetme/src/accounts/views.py",
+		"/Users/alejandrogarcia/Desktop/tweetme/src/tweets/models.py",
+		"/Users/alejandrogarcia/Desktop/tweetme/src/accounts/templates/accounts/user_detail.html",
+		"/Users/alejandrogarcia/Desktop/tweetme/src/accounts/api/serializers.py",
+		"/Users/alejandrogarcia/Desktop/tweetme/src/tweets/api/urls.py",
+		"/Users/alejandrogarcia/Desktop/tweetme/src/tweets/api/views.py",
+		"/Users/alejandrogarcia/Desktop/tweetme/src/tweets/api/pagination.py",
+		"/Users/alejandrogarcia/Desktop/tweetme/src/templates/base.html",
+		"/Users/alejandrogarcia/Desktop/tweetme/src/tweets/templates/tweets/tweet_list.html",
+		"/Users/alejandrogarcia/Desktop/tweetme/src/tweets/api/serializers.py",
+		"/Users/alejandrogarcia/Desktop/tweetme/src/tweets/views.py",
+		"/Users/alejandrogarcia/Desktop/tweetme/src/tweets/urls.py",
+		"/Users/alejandrogarcia/Desktop/tweetme/src/accounts/api/__init__.py",
+		"/Users/alejandrogarcia/Desktop/tweetme/src/tweets/api/__init__.py",
+		"/Users/alejandrogarcia/Desktop/tweetme/src/tweetme/settings/production.py",
+		"/Users/alejandrogarcia/Desktop/tweetme/src/tweetme/settings/local.py",
+		"/Users/alejandrogarcia/Desktop/tweetme/src/tweetme/settings/base.py",
+		"/Users/alejandrogarcia/Desktop/tweetme/src/tweets/tests.py",
+		"/Users/alejandrogarcia/Desktop/tweetme/src/tweets/forms.py",
+		"/Users/alejandrogarcia/Desktop/tweetme/src/templates/navbar.html",
+		"/Users/alejandrogarcia/Desktop/tweetme/src/tweets/templates/tweets/list_view.html",
+		"/Users/alejandrogarcia/Desktop/tweetme/src/tweets/templates/tweets/form.html",
+		"/Users/alejandrogarcia/Desktop/tweetme/src/tweets/templates/tweets/delete_confirm.html",
+		"/Users/alejandrogarcia/Desktop/tweetme/src/tweets/templates/tweets/create_view.html",
+		"/Users/alejandrogarcia/Desktop/tweetme/src/tweets/templates/tweets/tweet_detail.html",
+		"/Users/alejandrogarcia/Desktop/tweetme/src/templates/home.html",
+		"/Users/alejandrogarcia/Desktop/tweetme/src/tweets/templates/tweets/search_form.html",
+		"/Users/alejandrogarcia/Desktop/tweetme/src/tweets/templates/tweets/update_view.html",
+		"/Users/alejandrogarcia/Desktop/tweetme/src/tweets/mixins.py",
+		"/Users/alejandrogarcia/Desktop/tweetme/src/tweets/validators.py",
+		"/Users/alejandrogarcia/Desktop/tweetme/src/tweets/admin.py",
+		"/Users/alejandrogarcia/Desktop/tweetme/src/tweets/templates/tweets/detail_view.html",
+		"/Users/alejandrogarcia/Desktop/tweetme/src/tweetme/views.py",
+		"/Users/alejandrogarcia/Desktop/tweetme/src/static-storage/static/css/custom.css",
+		"/Users/alejandrogarcia/Desktop/tweetme/src/tweetme/settings/__init__.py",
+		"/Users/alejandrogarcia/Desktop/tweetme/tweetme"
+	],
+	"find":
+	{
+		"height": 23.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 23.0
+	},
+	"input":
+	{
+		"height": 44.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "perfectpair.sublime-project",
+	"replace":
+	{
+		"height": 42.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 266.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

@@ -1,0 +1,95 @@
+{% include "base.html" %}
+{% load static %}
+{% block content %}
+
+<link href="{% static 'css/shoe_list.css' %}" rel="stylesheet">
+
+
+
+ <div class="w-25" id="wrapper">
+
+    <!-- Sidebar -->
+    <div class="bg-light border-right" id="sidebar-wrapper">
+      <div class="sidebar-heading">Start Bootstrap </div>
+      <div class="list-group list-group-flush">
+        <a href="#" class="list-group-item list-group-item-action bg-light">Dashboard</a>
+        <a href="#" class="list-group-item list-group-item-action bg-light">Shortcuts</a>
+        <a href="#" class="list-group-item list-group-item-action bg-light">Overview</a>
+        <a href="#" class="list-group-item list-group-item-action bg-light">Events</a>
+        <a href="#" class="list-group-item list-group-item-action bg-light">Profile</a>
+        <a href="#" class="list-group-item list-group-item-action bg-light">Status</a>
+      </div>
+    </div>
+
+  </div>
+	
+    <div class='card-columns mr-2'>
+            {% for shoe in shoe_list %}
+				<div class="mb-4 mt-4 card text-left" style="width:16rem;">
+				  <img src="{{shoe.image.url}}" class="card-img-top" style="width:254px; height:250px">
+                  	
+				  <div class="card-body" class="shadow-lg p-3 mb-5 bg-white rounded">
+				    <h5 class="card-title">{{shoe.name}}</h5>
+				    <p class="card-text">Type: {{shoe.style}}</p>
+				    <p class="card-text">Size: {{shoe.size}}</p>
+				    <p class="card-text">${{shoe.price}}</p>
+				    <p class="card-text">Only {{shoe.stock}} available</p>
+				    <p class="card-text">Available: {{shoe.availability}}</p>
+
+
+				    
+				   	<a href="{% url 'shoe:cart_list' %}"class="btn btn-primary" name='q1'>Add to cart</a>
+				    
+
+
+				    <input id="apto" type="checkbox">
+				   	<label for="apto">Liked</label>
+				  </div>
+				</div>
+            {% endfor %}
+        </div>
+
+
+
+
+	
+		
+			
+			
+
+			
+	
+	
+
+ 
+{% include 'footer.html' %}
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

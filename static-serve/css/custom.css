@@ -1,0 +1,56 @@
+
+
+/* GRAB EVERYTHING THAT YOU NEED TO CUSTOM BY ID */
+
+#xyz {
+	position: relative;
+	left: 360px;
+}
+
+#header1 {
+	position: relative;
+	left: 800px;
+}
+
+
+#secondnav {
+	position: relative;
+	left: 200px;
+}
+
+.card {
+	display:inline-block;
+	margin-right: 20px;
+	position: relative;
+	left: 150px;
+
+}
+
+.carousel-inner {
+  height: 450px;
+}
+
+.zz {
+    position: absolute;
+    top: 0;
+    left: 0;
+    min-height: 450px;
+}
+
+
+i[class='fab fa-instagram fa-lg'] {
+	position: relative;
+	left: 620px;
+}
+
+i[class='fab fa-twitter fa-lg'] {
+	position: relative;
+	left: 450px;
+}
+
+i[class='fab fa-linkedin fa-lg'] {
+	position: relative;
+	left: 500px;
+}
+
+

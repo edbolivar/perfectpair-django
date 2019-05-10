@@ -1,0 +1,33 @@
+
+
+{% block content %}
+
+
+<h1>Hi</h1>
+
+	{% for x in cart %}
+		{{x}}
+
+	{% endfor%}
+
+
+
+
+
+	{% for item in cart.products.all %}
+
+
+		{{ item }}
+		{{ item.price }}
+		
+
+	{% endfor %}
+
+
+
+
+
+
+
+
+{% endblock %}

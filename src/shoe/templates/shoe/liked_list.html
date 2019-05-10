@@ -1,0 +1,44 @@
+{% include "base.html" %}
+
+
+
+
+
+{% block content %}
+	
+
+
+	<h1>This is the list of LIKED items</h1>
+
+
+	{% for shoe in shoe_list %}
+
+
+		{% if shoe.availability == False %}
+
+			<div class="container">
+				<div class="card" style="width: 18rem;">
+				  <img src="{{shoe.image.url}}" class="card-img-top" alt="...">
+				  <div class="card-body">
+				    <h5 class="card-title">{{shoe.name}}</h5>
+				    <p class="card-text">Type: {{shoe.style}}</p>
+				    <p class="card-text">Size: {{shoe.size}}</p>
+				    <p class="card-text">${{shoe.price}}</p>
+				    <p class="card-text">Only {{shoe.stock}} available</p>
+				    <p class="card-text">Only {{shoe.availability}}</p>
+				    <a href="#" class="btn btn-primary">Go somewhere</a>
+				    <input id="apto" type="checkbox">
+				   	<label for="apto">Liked</label>
+				  </div>
+				</div>
+			</div>
+
+		{% endif %}
+
+
+
+	{% endfor %}
+
+
+
+{% endblock %}
