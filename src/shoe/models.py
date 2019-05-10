@@ -15,6 +15,7 @@ class Shoe(models.Model):
 	availability 	= models.BooleanField(default=True)
 	new 			= models.BooleanField(default=True)
 	stock 			= models.IntegerField(default=5)
+	like			= models.BooleanField(default=False)
 	gender_choices 	= (
         ('M', 'Male'),
         ('F', 'Female'),
