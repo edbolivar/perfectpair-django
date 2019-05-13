@@ -125,8 +125,8 @@
                             <div style="float:right">
                                 <a href="{% url 'shoe:like' shoe_id=shoe.pk %}">
                                     <input id="apto" type="checkbox" {% if shoe.like %} checked{% endif %}>
+                                    <label for="apto">Liked</label>
                                 </a>
-                                <label for="apto">Liked</label>
                             </div>
                         </div>
                     </div>
