@@ -82,9 +82,9 @@ def gender_female(request):
 def search(request):
 	
 	q = request.GET.get('q')
-	
+
 	if q:
-		products = Shoe.objects.filter(name__icontains=q)
+		products = Shoe.objects.filter(brand__icontains=q)	
 		context = {'query': q, 'products': products}
 		template = 'shoe/gender_male.html'
 
@@ -111,9 +111,37 @@ def new_arrivals(request):
 
 
 def sidebar(request):
+	q1 = request.GET.get('Adidas')
+	q2 = request.GET.get('Nike')
+	q3 = request.GET.get('Puma')
+	f1 = "Adidas" if q1 == "on" else "1"
+	f2 = "Nike" if q2 == "on" else "1"
+	f3 = "Puma" if q3 == "on" else "1"
+	q4 = request.GET.get('s10')
+	q5 = request.GET.get('s9')
+	q6 = request.GET.get('s8')
+	f4 = 10 if q4 == "on" else 0
+	f5 = 9 if q5 == "on" else 0
+	f6 = 8 if q6 == "on" else 0
+	products1 = Shoe.objects.filter(Q(brand__icontains=f1)|Q(brand__icontains=f2)|Q(brand__icontains=f3))
+	products2 = Shoe.objects.filter(Q(size__exact=f4)|Q(size__exact=f5)|Q(size__exact=f6))
+	products = products1 & products2
+	context = {'products': products}
 	template = 'shoe/sidebar.html'
-	context = {}
 
+	# if q == "on":
+	# 	q = "Adidas"
+	# else:
+	# 	return render(request, 'shoe/sidebar.html', {})
+	# if q:
+
+	# elif q == '':
+	# 	template = 'shoe/sidebar.html'
+	# 	context = {}
+	# else:
+	# 	template = 'shoe/sidebar.html'
+	# 	context = {}
+		
 	return render(request, template, context)
 
 

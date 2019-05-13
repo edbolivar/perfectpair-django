@@ -67,16 +67,15 @@
     <div class="bg-light border-right" id="sidebar-wrapper">
       <div class="sidebar-heading">Filter By</div>
       <div class="list-group list-group-flush">
-        
-
+        <form action='/shoe/sidebar'>
         <li class="li" data-toggle="collapse" data-target="#brand">
           <a href="#" class="list-group-item list-group-item-action bg-light title">Brand</a>
         </li>
 
         <ul class="sub-menu dropdown" id="brand">
-            <li class="active li filter"><a href="#">CSS3 Animation</a></li>
-            <li class="li filter"><a href="#">General</a></li>
-            <li class="li filter"><a href="#">Buttons</a></li>
+            <li class="active li filter"><a href="#"><input type="checkbox" name="Adidas"> ADIDAS</a></li>
+            <li class="li filter"><a href="#"><input type="checkbox" name="Nike"> NIKE</a></li>
+            <li class="li filter"><a href="#"><input type="checkbox" name="Puma"> PUMA</a></li>
         </ul>
 
         <li class="li" data-toggle="collapse" data-target="#size">
@@ -84,9 +83,9 @@
         </li>
         
         <ul class="sub-menu collapse" id="size">
-            <li class="active li filter"><a href="#">Size 10</a></li>
-            <li class="li filter"><a href="#">Size 9</a></li>
-            <li class="li filter"><a href="#">Size 8</a></li>
+            <li class="active li filter"><a href="#"><input type="checkbox" name="s10"> Size 10</a></li>
+            <li class="li filter"><a href="#"><input type="checkbox" name="s9"> Size 9</a></li>
+            <li class="li filter"><a href="#"><input type="checkbox"name="s8"> Size 8</a></li>
         </ul>
 
         <li class="li" data-toggle="collapse" data-target="#color">
@@ -94,9 +93,9 @@
         </li>
         
         <ul class="sub-menu collapse" id="color">
-            <li class="active li filter"><a href="#">Blue</a></li>
-            <li class="li filter"><a href="#">Black</a></li>
-            <li class="li filter"><a href="#">Red</a></li>
+            <li class="active li filter"><a href="#"><input type="checkbox" name="blue"> Blue</a></li>
+            <li class="li filter"><a href="#"><input type="checkbox" name="black"> Black</a></li>
+            <li class="li filter"><a href="#"><input type="checkbox" name="red"> Red</a></li>
         </ul>
 
         <li class="li" data-toggle="collapse" data-target="#price">
@@ -104,11 +103,14 @@
         </li>
         
         <ul class="sub-menu collapse" id="price">
-            <li class="active li filter"><a href="#">$10</a></li>
-            <li class="li filter"><a href="#">$9</a></li>
-            <li class="li filter"><a href="#">$8</a></li>
+            <li class="active li filter"><a href="#"><input type="checkbox" name="10"> $10</a></li>
+            <li class="li filter"><a href="#"><input type="checkbox" name="9"> $9</a></li>
+            <li class="li filter"><a href="#"><input type="checkbox" name="8"> $8</a></li>
         </ul>
-
+        <ul class="sum-menu">
+          <input class="btn btn-primary" type="submit" value="Filter">
+        </ul>
+        </form>
       
         
       </div>
@@ -120,7 +122,7 @@
     <div id="page-content-wrapper">
 
       <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
-        <button class="btn btn-primary" id="menu-toggle">Filter</button>
+        <!-- <button class="btn btn-primary" id="menu-toggle">Filter</button> -->
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -146,7 +148,7 @@
               </div>
             </li>
           </ul>
-        </div>
+           </div>
       </nav>
 
       <!-- <div class="container-fluid">
@@ -154,6 +156,49 @@
         <p>The starting state of the menu will appear collapsed on smaller screens, and will appear non-collapsed on larger screens. When toggled using the button below, the menu will change.</p>
         <p>Make sure to keep all page content within the <code>#page-content-wrapper</code>. The top navbar is optional, and just for demonstration. Just create an element with the <code>#menu-toggle</code> ID which will toggle the menu when clicked.</p>
       </div> -->
+            <div class='mr-2 grid'>
+              {% for shoe in products %}
+              <div class="mb-4 mt-4 card text-left" style="width:16rem;">
+                <img src="{{shoe.image.url}}" class="card-img-top" style="width:254px; height:250px">
+
+                <div class="card-body" class="shadow-lg p-3 mb-5 bg-white rounded">
+                  <h5 class="card-title">{{shoe.name}}</h5>
+                  <p class="card-text ele-text">
+                    <span>Type:</span>
+                    <span style="float:right;">{{shoe.style}}</span>
+                  </p>
+                  <p class="card-text ele-text">
+                    <span>Size: </span>
+                    <span style="float:right;">{{shoe.size}}</span>
+                  </p>
+                  <p class="card-text ele-text">
+                    <span>Price:</span>
+                    <span style="float:right;color:turquoise; font-size: 25px!important;">${{shoe.price}}</span>
+                  </p>
+                  <p class="card-text ele-text">
+                    <span>Only</span>
+                    <span style="float:right">{{shoe.stock}} available</span>
+                  </p>
+                  <p class="card-text ele-text">
+                    <span>Available: </span>
+                    <span style="float:right">{{shoe.availability}}</span>
+                  </p>
+
+                  <div>
+                    <a href="{% url 'shoe:cart_list' shoe_id=shoe.pk %}" class="btn btn-primary"
+                      style="background-color:turquoise; border-color: turquoise;" name='q1'>
+                      <i class="fas fa-shopping-cart fa-lg"></i>
+                      Add to cart</a>
+                    <div style="float:right">
+                      <a href="{% url 'shoe:like' shoe_id=shoe.pk %}">
+                        <input id="apto" type="checkbox" {% if shoe.like %} checked{% endif %}>
+                        <label for="apto">Liked</label>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              {% endfor %}
     </div>
     <!-- /#page-content-wrapper -->
 
