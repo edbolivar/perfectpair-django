@@ -124,7 +124,7 @@
                                 Add to cart</a>
                             <div style="float:right">
                                 <a href="{% url 'shoe:like' shoe_id=shoe.pk %}">
-                                    <input id="apto" type="checkbox" value="{{shoe.like}}">
+                                    <input id="apto" type="checkbox" {% if shoe.like %} checked{% endif %}>
                                 </a>
                                 <label for="apto">Liked</label>
                             </div>
@@ -134,9 +134,6 @@
                 {% endif %}
             {% endfor %}
         </div>
-
-
-
 
 {% include 'footer.html' %}
 

@@ -1,9 +1,8 @@
 from django.db.models import Q
 from .models import Shoe
 from cart.models import Cart
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.shortcuts import get_object_or_404
-
 # Create your views here.
 
 
@@ -258,8 +257,10 @@ def new_arrivals(request):
 def like(request, shoe_id):
 	template = 'shoe/like.html'
 	shoe = Shoe.objects.get(pk=shoe_id)
-	print(shoe_id)
 	shoe.like = not shoe.like
+	shoe.save()
+	if(shoe.like == True):
+		redirect('shoe/like_list.html')
 	shoe_list = Shoe.objects.filter(like=True)
 
 	context = {
