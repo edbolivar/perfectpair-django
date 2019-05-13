@@ -123,9 +123,34 @@ def sidebar(request):
 	f4 = 10 if q4 == "on" else 0
 	f5 = 9 if q5 == "on" else 0
 	f6 = 8 if q6 == "on" else 0
+	q7 = request.GET.get('blue')
+	q8 = request.GET.get('black')
+	q9 = request.GET.get('red')
+	f7 = "blue" if q7 == "on" else "1"
+	f8 = "black" if q8 == "on" else "1"
+	f9 = "red" if q9 == "on" else "1"
+	print(f7)
+	q10 = request.GET.get('d10')
+	q11 = request.GET.get('d9')
+	q12 = request.GET.get('d8')
+	f10 = 10 if q10 == "on" else 0
+	f11 = 9 if q11 == "on" else 0
+	f12 = 8 if q12 == "on" else 0
+
 	products1 = Shoe.objects.filter(Q(brand__icontains=f1)|Q(brand__icontains=f2)|Q(brand__icontains=f3))
 	products2 = Shoe.objects.filter(Q(size__exact=f4)|Q(size__exact=f5)|Q(size__exact=f6))
-	products = products1 & products2
+	products3 = Shoe.objects.filter(Q(color__icontains=f7)|Q(color__icontains=f8)|Q(color__icontains=f9))
+	products4 = Shoe.objects.filter(Q(price__exact=f10)|Q(price__exact=f11)|Q(price__exact=f12))
+	products = []
+	if(products1):
+		products = products1
+	if(products2):
+		products = products & products2
+	if(products3):
+		products = products & products3
+	if(products4):
+		products = products & products4
+	
 	context = {'products': products}
 	template = 'shoe/sidebar.html'
 
