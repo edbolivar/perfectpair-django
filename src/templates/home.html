@@ -14,6 +14,58 @@
 	.carousel-item{
 		height: 100%;
 	}
+	.mouse {
+		max-width: 2.5rem;
+		width: 100%;
+		height: auto;
+	}
+
+	.scroll {
+		-webkit-animation-name: scroll;
+		animation-name: scroll;
+		-webkit-animation-duration: 1.5s;
+		animation-duration: 1.5s;
+		-webkit-animation-timing-function: cubic-bezier(0.65, -0.55, 0.25, 1.5);
+		animation-timing-function: cubic-bezier(0.65, -0.55, 0.25, 1.5);
+		-webkit-animation-iteration-count: infinite;
+		animation-iteration-count: infinite;
+		-webkit-transform-origin: 50% 20.5px;
+		transform-origin: 50% 20.5px;
+		will-change: transform, opacity;
+		opacity: 1;
+	}
+
+	.scroll-link {
+		position: absolute;
+		bottom: 1rem;
+		left: 50%;
+		-webkit-transform: translateX(-50%);
+		transform: translateX(-50%);
+	}
+
+	@-webkit-keyframes scroll {
+		0%, 20% {
+			-webkit-transform: translateY(0) scaleY(1);
+			transform: translateY(0) scaleY(1);
+		}
+		100% {
+			-webkit-transform: translateY(36px) scaleY(2);
+			transform: translateY(36px) scaleY(2);
+			opacity: 0;
+			}
+	}
+
+	@keyframes scroll {
+		0%, 20% {
+			-webkit-transform: translateY(0) scaleY(1);
+			transform: translateY(0) scaleY(1);
+		}
+		100% {
+			-webkit-transform: translateY(36px) scaleY(2);
+			transform: translateY(36px) scaleY(2);
+			opacity: 0;
+		}
+	}
 </style>
 <link href="{% static 'css/test.css' %}" rel="stylesheet">
 
@@ -21,14 +73,22 @@
 	<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
 	  <div class="carousel-inner">
 	    <div class="carousel-item active" id="zz">
-	      <img src="/media/shoe/s1.jpg" class="d-block w-100" alt="...">
-	    </div>
+				<img src="/media/shoe/s1.jpg" class="d-block w-100" alt="...">
+			</div>
 	    <div class="carousel-item">
 	      <img src="/media/shoe/s2.jpg" class="d-block w-100" alt="...">
 	    </div>
 	    <div class="carousel-item">
 	      <img src="/media/shoe/s3.jpg" class="d-block w-100" alt="...">
 			</div>
+			<a class="scroll-link" href="#section1">
+				<svg class="mouse" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 76 130" preserveAspectRatio="xMidYMid meet">
+					<g fill="none" fill-rule="evenodd">
+						<rect width="70" height="118" x="1.5" y="1.5" stroke="#FFF" stroke-width="3" rx="36" />
+						<circle class="scroll" cx="36.5" cy="31.5" r="4.5" fill="#FFF" />
+					</g>
+				</svg>
+			</a>
 		</div>
 	  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
 	    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -40,7 +100,7 @@
 		</a>
 	</div>	
 
-	<section>
+	<section id="section1">
 		<h1 class="d-inline bg-success">This is a </h1>
     <h1 class="d-inline bg-success">SECTION</h1>
 	</section>
@@ -54,7 +114,6 @@
 		<h1 class="d-inline bg-alert">This is should be the last </h1>
     <h1 class="d-inline bg-alert">SECTION</h1>
 	</section>
-
 {% include 'footer.html' %}
 {% endblock content %}
 
