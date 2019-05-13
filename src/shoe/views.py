@@ -48,7 +48,6 @@ def cart_list(request, shoe_id):
 	context = {
 		'shoe_list': shoe_list,
 		'system': system,
-		
 	}
 
 	return render(request, 'shoe/cart_list.html', context)
@@ -129,7 +128,6 @@ def men_sneakers(request):
 
 	template = 'shoe/men_sneakers.html'
 	
-
 	return render(request, template, context)
 
 
@@ -165,7 +163,6 @@ def men_casual(request):
 
 def men_boots(request):
     	
-
 	system = request.POST.get('cart', None)
 
 	shoe_list = Shoe.objects.all()
@@ -261,6 +258,7 @@ def new_arrivals(request):
 def like(request, shoe_id):
 	template = 'shoe/like.html'
 	shoe = Shoe.objects.get(pk=shoe_id)
+	print(shoe_id)
 	shoe.like = not shoe.like
 	shoe_list = Shoe.objects.filter(like=True)
 
