@@ -6,21 +6,78 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
     <title></title>
     <!-- Bootstrap CSS -->
     <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
     <link href="{% static 'css/custom.css' %}" rel="stylesheet">
     <style>
-      .nav-align{
-        margin-top: 1%!important;
-        margin-right: 5px!important;
+      @import url("https://fonts.googleapis.com/css?family=Permanent+Marker");
+      svg {
+        max-width: 30rem;
+        width: 100%;
+        height: auto;
+        fill: none;
+        stroke: white;
+        stroke-width: 4;
       }
-      .con1{
-        margin-left: 27%;
+      svg tspan > tspan {
+        stroke-dasharray: 1500;
+        stroke-dashoffset: -1500;
       }
-      .con2{
-        margin-left: 17%;
+      svg tspan > tspan:nth-of-type(1) {
+        -webkit-animation: draw 300ms 150ms forwards;
+        animation: draw 300ms 150ms forwards;
+      }
+      svg tspan > tspan:nth-of-type(2) {
+        -webkit-animation: draw 300ms 300ms forwards;
+        animation: draw 300ms 300ms forwards;
+      }
+      svg tspan > tspan:nth-of-type(3) {
+        -webkit-animation: draw 300ms 450ms forwards;
+        animation: draw 300ms 450ms forwards;
+      }
+      svg tspan > tspan:nth-of-type(4) {
+        -webkit-animation: draw 300ms 600ms forwards;
+        animation: draw 300ms 600ms forwards;
+      }
+      svg tspan > tspan:nth-of-type(5) {
+        -webkit-animation: draw 300ms 750ms forwards;
+        animation: draw 300ms 750ms forwards;
+      }
+      svg tspan > tspan:nth-of-type(6) {
+        -webkit-animation: draw 300ms 900ms forwards;
+        animation: draw 300ms 900ms forwards;
+      }
+      svg tspan > tspan:nth-of-type(7) {
+        -webkit-animation: draw 300ms 1050ms forwards;
+        animation: draw 300ms 1050ms forwards;
+      }
+      svg tspan > tspan:nth-of-type(8) {
+        -webkit-animation: draw 300ms 1200ms forwards;
+        animation: draw 300ms 1200ms forwards;
+      }
+      svg tspan > tspan:nth-of-type(9) {
+        -webkit-animation: draw 300ms 1350ms forwards;
+        animation: draw 300ms 1350ms forwards;
+      }
+      svg tspan > tspan:nth-of-type(10) {
+        -webkit-animation: draw 300ms 1500ms forwards;
+        animation: draw 300ms 1500ms forwards;
+      }
+      svg tspan > tspan:nth-of-type(11) {
+        -webkit-animation: draw 300ms 1650ms forwards;
+        animation: draw 300ms 1650ms forwards;
+      }
+      @-webkit-keyframes draw {
+        100% {
+          stroke-dashoffset: 0;
+        }
+      }
+
+      @keyframes draw {
+        100% {
+          stroke-dashoffset: 0;
+        }
       }
     </style>
   </head>
@@ -28,8 +85,51 @@
 
 
 
-  <section>
-		<h1 class="d-inline bg-alert" style="font-family: 'Snell Roundhand', cursive  ;">PerfectPair</h1>
+  <section style="background-color: rgb(217,216,242);">
+      <svg viewBox="0 0 1418 116" version="1.1" xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink">
+        <title>PerfectPair</title>
+        <g stroke="none" fill="none" fill-rule="evenodd" fill-opacity="">
+          <text id="@WebDesignerMag" stroke="#fff" fill="#645F5A" font-weight="normal"
+            font-family="PermanentMarker-Regular, Permanent Marker" font-size="144">
+            <tspan x="3" y="109">
+              <!--
+					-->
+              <tspan>P</tspan>
+              <!--
+					-->
+              <tspan>e</tspan>
+              <!--
+					-->
+              <tspan>r</tspan>
+              <!--
+					-->
+              <tspan>f</tspan>
+              <!--
+					-->
+              <tspan>e</tspan>
+              <!--
+					-->
+              <tspan>c</tspan>
+              <!--
+					-->
+              <tspan>t</tspan>
+              <!--
+					-->
+              <tspan>p</tspan>
+              <!--
+					-->
+              <tspan>a</tspan>
+              <!--
+					-->
+              <tspan>i</tspan>
+              <!--
+					-->
+              <tspan>r</tspan>
+            </tspan>
+          </text>
+        </g>
+      </svg>
     <!-- <h1 class="d-inline bg-warning">Login/Logout</h1> -->
 	</section>
 
@@ -124,7 +224,7 @@
                 <a class="fas fa-user fa-lg" href="{% url 'shoe:cart_list' shoe_id=2 %}"></a>
               </li>
               <li class="nav-item nav-align">
-                <a class="fas fa-heart fa-lg" href="{% url 'shoe:like' %}"></a>
+                <a class="fas fa-heart fa-lg" href="{% url 'shoe:liked_list' %}"></a>
               </li> 
             </ul>
           </div>
@@ -150,11 +250,13 @@
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="{% static 'js/bootstrap.min.js' %}"></script>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-
+    {% block script_block %}
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+      <script src="{% static 'js/bootstrap.min.js' %}"></script>
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    {% endblock %}
   </body>
 </html>
 

@@ -22,10 +22,9 @@ def shoe_list(request):
 def liked_list(request):
 
 
-	shoe_list = Shoe.objects.all()
+	shoe_list = Shoe.objects.filter(like=True)
 
 	context = {
-
 		'shoe_list': shoe_list,
 	}
 
@@ -259,10 +258,12 @@ def new_arrivals(request):
 	return render(request, template, context)
 
 
-def like(request):
+def like(request, shoe_id):
 	template = 'shoe/like.html'
-	shoe_list = Shoe.objects.all()
-	
+	shoe = Shoe.objects.get(pk=shoe_id)
+	shoe.like = not shoe.like
+	shoe_list = Shoe.objects.filter(like=True)
+
 	context = {
 		'shoe_list': shoe_list,
 	}

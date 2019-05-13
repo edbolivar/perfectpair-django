@@ -1,42 +1,74 @@
 {% include "base.html" %}
+<style>
+	.title {
+		font-family: 'American Typewriter', serif;
+		text-align: center
+	}
 
+	.card-title {
+		font-family: 'Comic sans MS', sans-serif;
+		font-size: 23px;
+	}
 
+	.grid {
+		display: grid;
+		grid-template-columns: repeat(5, 1fr);
+		grid-gap: 10px;
+		grid-auto-rows: minmax(10px, auto);
+		background-color: rgb(238, 238, 238);
+	}
 
+	.ele-text {
+		font-family: 'American Typewriter', serif;
+	}
 
-
+	.card {
+		left: 10% !important;
+	}
+</style>
 {% block content %}
-	
-
-
-	<h1>This is the list of LIKED items</h1>
-
+	<h1 class="title">This is the list of LIKED items</h1>
+    <div class='mr-2 grid'>
 
 	{% for shoe in shoe_list %}
+			<div class="mb-4 mt-4 card text-left" style="width:16rem;">
+				<img src="{{shoe.image.url}}" class="card-img-top" style="width:254px; height:250px">
 
+				<div class="card-body" class="shadow-lg p-3 mb-5 bg-white rounded">
+					<h5 class="card-title">{{shoe.name}}</h5>
+					<p class="card-text ele-text">
+						<span>Type:</span>
+						<span style="float:right;">{{shoe.style}}</span>
+					</p>
+					<p class="card-text ele-text">
+						<span>Size: </span>
+						<span style="float:right;">{{shoe.size}}</span>
+					</p>
+					<p class="card-text ele-text">
+						<span>Price:</span>
+						<span style="float:right;color:turquoise; font-size: 25px!important;">${{shoe.price}}</span>
+					</p>
+					<p class="card-text ele-text">
+						<span>Only</span>
+						<span style="float:right">{{shoe.stock}} available</span>
+					</p>
+					<p class="card-text ele-text">
+						<span>Available: </span>
+						<span style="float:right">{{shoe.availability}}</span>
+					</p>
 
-		{% if shoe.availability == False %}
-
-			<div class="container">
-				<div class="card" style="width: 18rem;">
-				  <img src="{{shoe.image.url}}" class="card-img-top" alt="...">
-				  <div class="card-body">
-				    <h5 class="card-title">{{shoe.name}}</h5>
-				    <p class="card-text">Type: {{shoe.style}}</p>
-				    <p class="card-text">Size: {{shoe.size}}</p>
-				    <p class="card-text">${{shoe.price}}</p>
-				    <p class="card-text">Only {{shoe.stock}} available</p>
-				    <p class="card-text">Only {{shoe.availability}}</p>
-				    <a href="#" class="btn btn-primary">Go somewhere</a>
-				    <input id="apto" type="checkbox">
-				   	<label for="apto">Liked</label>
-				  </div>
+					<div>
+						<a href="{% url 'shoe:cart_list' shoe_id=shoe.pk %}" class="btn btn-primary"
+							style="background-color:turquoise; border-color: turquoise;" name='q1'>
+							<i class="fas fa-shopping-cart fa-lg"></i>
+							Add to cart</a>
+						<div style="float:right">
+							<input id="apto" type="checkbox" checked>
+							<label for="apto">Liked</label>
+						</div>
+					</div>
 				</div>
 			</div>
-
-		{% endif %}
-
-
-
 	{% endfor %}
 
 

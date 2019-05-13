@@ -23,7 +23,7 @@ urlpatterns = [
    	path('women_boots', views.women_boots, name="women_boots"),
    	path('women_sandals', views.women_sandals, name="women_sandals"),
 	path('new_arrivals', views.new_arrivals, name="new_arrivals"),
-	path('like', views.like, name="like"),
+	path('like/<shoe_id>', views.like, name="like"),
 
 ]
 
