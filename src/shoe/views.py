@@ -39,13 +39,11 @@ def cart_list(request, shoe_id):
 	cart.save()
 	shoe_list = []
 	for shoe in cart.products.all():
-		print(shoe)
 		shoe_list.append(shoe)
-	print(shoe_list)
 	
 	# shoe_list = Shoe.objects.all()
 	context = {
-		'shoe_list': shoe_list,
+		'shoe_list': shoe_lists,
 		'system': system,
 	}
 

@@ -3,7 +3,6 @@ import datetime
 
 # Create your models here.
 
-
 class Shoe(models.Model):
 	name 			= models.CharField(max_length=30, default="Boosts")
 	image 			= models.ImageField(upload_to='shoe/', blank=True, null=True)
@@ -23,10 +22,5 @@ class Shoe(models.Model):
 	date 			= models.DateField(("Date"), default=datetime.date.today)
 	like 			= models.BooleanField(default=False)
 
-
-
-
 	def __str__(self):
 		return str(self.name)
-
-
