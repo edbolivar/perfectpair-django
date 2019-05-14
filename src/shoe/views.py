@@ -308,12 +308,10 @@ def new_arrivals(request):
 
 
 def like(request, shoe_id):
-	template = 'shoe/like.html'
 	shoe = Shoe.objects.get(pk=shoe_id)
 	shoe.like = not shoe.like
 	shoe.save()
-	if shoe.like == True:
-		template = 'shoe/liked_list.html'
+	template = 'shoe/liked_list.html'
 	shoe_list = Shoe.objects.filter(like=True)
 
 	context = {
