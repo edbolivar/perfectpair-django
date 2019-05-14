@@ -88,8 +88,7 @@
         <circle id="Oval" cx="512" cy="512" r="512"></circle>
     </svg>
         <div class='mr-2 grid'>
-            {% for shoe in shoe_list %}
-                
+            {% for shoe in shoe_list %}                
                 {% if shoe.new == True %}
                     <div class="mb-4 mt-4 card text-left" style="width:16rem;"> 
                     <img src="{{shoe.image.url}}" class="card-img-top" style="width:254px; height:250px">
@@ -116,7 +115,6 @@
                             <span>Available: </span>
                             <span style="float:right">{{shoe.availability}}</span>
                         </p>
-                        
                         <div>
                             <a href="{% url 'shoe:cart_list' shoe_id=shoe.pk %}" class="btn btn-primary"
                                 style="background-color:turquoise; border-color: turquoise;" name='q1'>

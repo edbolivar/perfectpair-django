@@ -39,11 +39,13 @@ def cart_list(request, shoe_id):
 	cart.save()
 	shoe_list = []
 	for shoe in cart.products.all():
+		print(shoe)
 		shoe_list.append(shoe)
+	print(shoe_list)
 	
 	# shoe_list = Shoe.objects.all()
 	context = {
-		'shoe_list': shoe_lists,
+		'shoe_list': shoe_list,
 		'system': system,
 	}
 
@@ -116,6 +118,7 @@ def sidebar(request):
 	f2 = "Nike" if q2 == "on" else "1"
 	f3 = "Puma" if q3 == "on" else "1"
 	q4 = request.GET.get('s10')
+	print(q4)
 	q5 = request.GET.get('s9')
 	q6 = request.GET.get('s8')
 	f4 = 10 if q4 == "on" else 0
@@ -127,7 +130,6 @@ def sidebar(request):
 	f7 = "blue" if q7 == "on" else "1"
 	f8 = "black" if q8 == "on" else "1"
 	f9 = "red" if q9 == "on" else "1"
-	print(f7)
 	q10 = request.GET.get('d10')
 	q11 = request.GET.get('d9')
 	q12 = request.GET.get('d8')
@@ -139,16 +141,16 @@ def sidebar(request):
 	products2 = Shoe.objects.filter(Q(size__exact=f4)|Q(size__exact=f5)|Q(size__exact=f6))
 	products3 = Shoe.objects.filter(Q(color__icontains=f7)|Q(color__icontains=f8)|Q(color__icontains=f9))
 	products4 = Shoe.objects.filter(Q(price__exact=f10)|Q(price__exact=f11)|Q(price__exact=f12))
-	products = []
+	products = Shoe.objects.all()
 	if(products1):
-		products = products1
+		products = products & products1
 	if(products2):
 		products = products & products2
 	if(products3):
 		products = products & products3
 	if(products4):
 		products = products & products4
-	
+
 	context = {'products': products}
 	template = 'shoe/sidebar.html'
 
