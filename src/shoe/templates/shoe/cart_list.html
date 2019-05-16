@@ -20,9 +20,9 @@
         <th scope="col">Name</th>
         <th scope="col">Size</th>
         <th scope="col">Price</th>
+        <th scope="col"></th>
         </tr>
     </thead>
-
     <tbody>
     {% for shoe in shoe_list %}
         <tr>
@@ -31,6 +31,12 @@
         <td>{{shoe.name}}</td>
         <td>{{shoe.stock}}</td>
         <td>{{shoe.price}}</td>
+        <td>
+            <form action=" {% url 'shoe:cart_list' shoe_id=shoe.pk %}" id="delete">
+                <input type="submit" class="btn btn-primary" style="background-color:red; border-color: red;" id="q1" name='q1' value="delete">
+                </input>
+            </form>
+        </td>
         </tr>
     {% endfor %}
 
