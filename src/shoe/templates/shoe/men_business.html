@@ -2,17 +2,6 @@
 {% load static %}
 {% block content %}
 
-
-<div style="position:relative;">
-    <h1 class="title">New Arrivals</h1>
-    <button class="btn fas fa-bars fa-2x" id="menu-toggle" style="position:absolute; top:0;"></button>
-</div>
-<svg class="pulse" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"
-    xmlns:xlink="http://www.w3.org/1999/xlink">
-    <circle id="Oval" cx="512" cy="512" r="512"></circle>
-    <circle id="Oval" cx="512" cy="512" r="512"></circle>
-    <circle id="Oval" cx="512" cy="512" r="512"></circle>
-</svg>
 <style>
     @import url("https://fonts.googleapis.com/css?family=Lobster+Two");
 
@@ -137,14 +126,27 @@
         margin-left: 0;
     }
 </style>
-
-
+<div style="position:relative;">
+    <h1 class="title">Men Business</h1>
+    <button class="btn fas fa-bars fa-2x" id="menu-toggle" style="position:absolute; top:0;"></button>
+</div>
+<svg class="pulse" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink">
+    <circle id="Oval" cx="512" cy="512" r="512"></circle>
+    <circle id="Oval" cx="512" cy="512" r="512"></circle>
+    <circle id="Oval" cx="512" cy="512" r="512"></circle>
+</svg>
 <div class="d-flex toggled" id="wrapper">
 
     <div class="bg-light border-right" id="sidebar-wrapper">
         <div class="sidebar-heading">Filter By</div>
         <div class="list-group list-group-flush">
-            <form action='/shoe/new_arrivals' id="filter" autocomplete="off">
+            <form action='/shoe/men_business' id="filter" autocomplete="off">
+                <ul class="sub-menu dropdown" id="brand">
+                    <li class="active li filter"><a href="#"><input type="checkbox" name="All" id="All">
+                            All</a></li>
+                </ul>
+
                 <li class="li" data-toggle="collapse" data-target="#brand">
                     <a href="#" class="list-group-item list-group-item-action bg-light title">Brand</a>
                 </li>
@@ -172,8 +174,7 @@
                 </li>
 
                 <ul class="sub-menu dropdown" id="color">
-                    <li class="active li filter"><a href="#"><input type="checkbox" name="blue" id="blue"> Blue</a>
-                    </li>
+                    <li class="active li filter"><a href="#"><input type="checkbox" name="blue" id="blue"> Blue</a></li>
                     <li class="li filter"><a href="#"><input type="checkbox" name="black" id="black"> Black</a></li>
                     <li class="li filter"><a href="#"><input type="checkbox" name="red" id="red"> Red</a></li>
                 </ul>
@@ -183,8 +184,7 @@
                 </li>
 
                 <ul class="sub-menu dropdown" id="price">
-                    <li class="active li filter"><a href="#"><input type="checkbox" name="d10" id="d10"> $10</a>
-                    </li>
+                    <li class="active li filter"><a href="#"><input type="checkbox" name="d10" id="d10"> $10</a></li>
                     <li class="li filter"><a href="#"><input type="checkbox" name="d9" id="d9"> $9</a></li>
                     <li class="li filter"><a href="#"><input type="checkbox" name="d8" id="d8"> $8</a></li>
                 </ul>
@@ -192,8 +192,6 @@
           <input class="btn btn-primary" type="submit" value="Filter">
         </ul> -->
             </form>
-
-
         </div>
     </div>
     <form id="filter">
@@ -246,6 +244,7 @@
         $("#wrapper").toggleClass("toggled");
     });
     $(document).ready(function () {
+        $('#All').attr('checked', localStorage.getItem("#All") == 'true' ? true : false);
         $('#Adidas').attr('checked', localStorage.getItem("#Adidas") == 'true' ? true : false);
         $('#Nike').attr('checked', localStorage.getItem("#Nike") == 'true' ? true : false);
         $('#Puma').attr('checked', localStorage.getItem("#Puma") == 'true' ? true : false);
@@ -261,7 +260,14 @@
         $('#d10').attr('checked', localStorage.getItem("#d10") == 'true' ? true : false);
         $('#d9').attr('checked', localStorage.getItem("#d9") == 'true' ? true : false);
         $('#d8').attr('checked', localStorage.getItem("#d8") == 'true' ? true : false);
-
+    });
+    $("#All").click(function () {
+        if ($(this).is(':checked')) {
+            localStorage.setItem("#All", true);
+        } else {
+            localStorage.setItem("#All", false);
+        }
+        $("#filter").submit();
     });
 
     $("#Adidas").click(function () {
@@ -270,6 +276,7 @@
         } else {
             localStorage.setItem("#Adidas", false);
         }
+
         $("#filter").submit();
     });
     $("#Nike").click(function () {
@@ -280,6 +287,7 @@
         }
         $("#filter").submit();
     });
+
     $("#Puma").click(function () {
         if ($(this).is(':checked')) {
             localStorage.setItem("#Puma", true);
@@ -347,6 +355,7 @@
         }
         $("#filter").submit();
     });
+
     $("#d9").click(function () {
         if ($(this).is(':checked')) {
             localStorage.setItem("#d9", true);
@@ -355,6 +364,7 @@
         }
         $("#filter").submit();
     });
+
     $("#d8").click(function () {
         if ($(this).is(':checked')) {
             localStorage.setItem("#d8", true);
@@ -364,8 +374,6 @@
         $("#filter").submit();
     });
 </script>
-
-
 {% include 'footer.html' %}
 
 {% endblock %}

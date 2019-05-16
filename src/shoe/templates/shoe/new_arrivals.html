@@ -126,6 +126,11 @@
         <div class="sidebar-heading">Filter By</div>
         <div class="list-group list-group-flush">
             <form action='/shoe/new_arrivals' id="filter" autocomplete="off">
+                <ul class="sub-menu dropdown" id="brand">
+                    <li class="active li filter"><a href="#"><input type="checkbox" name="All" id="All">
+                            All</a></li>
+                </ul>
+
                 <li class="li" data-toggle="collapse" data-target="#brand">
                     <a href="#" class="list-group-item list-group-item-action bg-light title">Brand</a>
                 </li>
@@ -171,14 +176,12 @@
           <input class="btn btn-primary" type="submit" value="Filter">
         </ul> -->
             </form>
-
-
         </div>
     </div>
         <form id="filter">
         <div class='mr-2 grid'>
-            {% for shoe in shoe_list %}  
-                    <div class="mb-4 mt-4 card text-left" style="width:16rem;"> 
+            {% for shoe in shoe_list %}
+                    <div class="mb-4 mt-4 card text-left" style="width:16rem;">
                     <img src="{{shoe.image.url}}" class="card-img-top" style="width:254px; height:250px">
                         
                     <div class="card-body" class="shadow-lg p-3 mb-5 bg-white rounded">
@@ -209,8 +212,8 @@
                                 <i class="fas fa-shopping-cart fa-lg"></i>
                                 Add to cart</a>
                             <div style="float:right">
-                                    <input id="apto" type="checkbox" {% if shoe.like %} checked{% endif %}>
-                                    <label for="apto"><a href="{% url 'shoe:like' shoe_id=shoe.pk %}">Liked</a></label>
+                                <input id="apto" type="checkbox" {% if shoe.like %} checked{% endif %}>
+                                <label for="apto"><a href="{% url 'shoe:like' shoe_id=shoe.pk %}">Liked</a></label>
                             </div>
                         </div>
                     </div>
@@ -225,122 +228,134 @@
               $("#wrapper").toggleClass("toggled");
           });
           $( document ).ready(function() {
-          $('#Adidas').attr('checked', localStorage.getItem("#Adidas")=='true'?true:false);
-          $('#Nike').attr('checked', localStorage.getItem("#Nike")=='true'?true:false);
-          $('#Puma').attr('checked', localStorage.getItem("#Puma")=='true'?true:false);
+            $('#All').attr('checked', localStorage.getItem("#All")=='true'?true:false);
+            $('#Adidas').attr('checked', localStorage.getItem("#Adidas")=='true'?true:false);
+            $('#Nike').attr('checked', localStorage.getItem("#Nike")=='true'?true:false);
+            $('#Puma').attr('checked', localStorage.getItem("#Puma")=='true'?true:false);
 
-          $('#s10').attr('checked', localStorage.getItem("#s10")=='true'?true:false);
-          $('#s9').attr('checked', localStorage.getItem("#s9")=='true'?true:false);
-          $('#s8').attr('checked', localStorage.getItem("#s8")=='true'?true:false);
+            $('#s10').attr('checked', localStorage.getItem("#s10")=='true'?true:false);
+            $('#s9').attr('checked', localStorage.getItem("#s9")=='true'?true:false);
+            $('#s8').attr('checked', localStorage.getItem("#s8")=='true'?true:false);
 
-          $('#blue').attr('checked', localStorage.getItem("#blue")=='true'?true:false);
-          $('#black').attr('checked', localStorage.getItem("#black")=='true'?true:false);
-          $('#red').attr('checked', localStorage.getItem("#red")=='true'?true:false);
+            $('#blue').attr('checked', localStorage.getItem("#blue")=='true'?true:false);
+            $('#black').attr('checked', localStorage.getItem("#black")=='true'?true:false);
+            $('#red').attr('checked', localStorage.getItem("#red")=='true'?true:false);
 
-          $('#d10').attr('checked', localStorage.getItem("#d10")=='true'?true:false);
-          $('#d9').attr('checked', localStorage.getItem("#d9")=='true'?true:false);
-          $('#d8').attr('checked', localStorage.getItem("#d8")=='true'?true:false);
-
+            $('#d10').attr('checked', localStorage.getItem("#d10")=='true'?true:false);
+            $('#d9').attr('checked', localStorage.getItem("#d9")=='true'?true:false);
+            $('#d8').attr('checked', localStorage.getItem("#d8")=='true'?true:false);
+          });
+          $("#All").click(function () {
+            if ($(this).is(':checked')) {
+                localStorage.setItem("#All",true);
+            } else {
+                localStorage.setItem("#All",false);
+            }
+            $("#filter").submit();
           });
 
           $("#Adidas").click(function () {
-          if ($(this).is(':checked')) {
-          localStorage.setItem("#Adidas",true);
-          } else {
-          localStorage.setItem("#Adidas",false);
-          }
-          $("#filter").submit();
+            if ($(this).is(':checked')) {
+                localStorage.setItem("#Adidas",true);
+            } else {
+                localStorage.setItem("#Adidas",false);
+            }
+
+              $("#filter").submit();
           });
           $("#Nike").click(function () {
-          if ($(this).is(':checked')) {
-          localStorage.setItem("#Nike",true);
-          } else {
-          localStorage.setItem("#Nike",false);
-          }
-          $("#filter").submit();
-          });
+            if ($(this).is(':checked')) {
+                localStorage.setItem("#Nike",true);
+            } else {
+                localStorage.setItem("#Nike",false);
+            }
+                $("#filter").submit();
+            });
+
           $("#Puma").click(function () {
-          if ($(this).is(':checked')) {
-          localStorage.setItem("#Puma",true);
-          } else {
-          localStorage.setItem("#Puma",false);
-          }
-          $("#filter").submit();
+            if ($(this).is(':checked')) {
+                localStorage.setItem("#Puma",true);
+            } else {
+                localStorage.setItem("#Puma",false);
+            }
+            $("#filter").submit();
           });
 
           $("#s10").click(function () {
-          if ($(this).is(':checked')) {
-          localStorage.setItem("#s10",true);
-          } else {
-          localStorage.setItem("#s10",false);
-          }
-          $("#filter").submit();
+            if ($(this).is(':checked')) {
+                localStorage.setItem("#s10",true);
+            } else {
+                localStorage.setItem("#s10",false);
+            }
+            $("#filter").submit();
           });
           $("#s9").click(function () {
-          if ($(this).is(':checked')) {
-          localStorage.setItem("#s9",true);
-          } else {
-          localStorage.setItem("#s9",false);
-          }
-          $("#filter").submit();
+            if ($(this).is(':checked')) {
+                localStorage.setItem("#s9",true);
+            } else {
+                localStorage.setItem("#s9",false);
+            }
+            $("#filter").submit();
           });
           $("#s8").click(function () {
-          if ($(this).is(':checked')) {
-          localStorage.setItem("#s8",true);
-          } else {
-          localStorage.setItem("#s8",false);
-          }
-          $("#filter").submit();
+            if ($(this).is(':checked')) {
+                localStorage.setItem("#s8",true);
+            } else {
+                localStorage.setItem("#s8",false);
+            }
+            $("#filter").submit();
           });
 
           $("#blue").click(function () {
-          if ($(this).is(':checked')) {
-          localStorage.setItem("#blue",true);
-          } else {
-          localStorage.setItem("#blue",false);
-          }
-          $("#filter").submit();
+            if ($(this).is(':checked')) {
+                localStorage.setItem("#blue",true);
+            } else {
+                localStorage.setItem("#blue",false);
+            }
+            $("#filter").submit();
           });
           $("#black").click(function () {
-          if ($(this).is(':checked')) {
-          localStorage.setItem("#black",true);
-          } else {
-          localStorage.setItem("#black",false);
-          }
-          $("#filter").submit();
+            if ($(this).is(':checked')) {
+                localStorage.setItem("#black",true);
+            } else {
+                localStorage.setItem("#black",false);
+            }
+            $("#filter").submit();
           });
           $("#red").click(function () {
-          if ($(this).is(':checked')) {
-          localStorage.setItem("#red",true);
-          } else {
-          localStorage.setItem("#red",false);
-          }
-          $("#filter").submit();
+            if ($(this).is(':checked')) {
+                localStorage.setItem("#red",true);
+            } else {
+                localStorage.setItem("#red",false);
+            }
+            $("#filter").submit();
           });
 
           $("#d10").click(function () {
-          if ($(this).is(':checked')) {
-          localStorage.setItem("#d10",true);
-          } else {
-          localStorage.setItem("#d10",false);
-          }
-          $("#filter").submit();
+            if ($(this).is(':checked')) {
+                localStorage.setItem("#d10",true);
+            } else {
+                localStorage.setItem("#d10",false);
+            }
+            $("#filter").submit();
           });
+
           $("#d9").click(function () {
-          if ($(this).is(':checked')) {
-          localStorage.setItem("#d9",true);
-          } else {
-          localStorage.setItem("#d9",false);
-          }
-          $("#filter").submit();
+            if ($(this).is(':checked')) {
+                localStorage.setItem("#d9",true);
+            } else {
+                localStorage.setItem("#d9",false);
+            }
+            $("#filter").submit();
           });
+
           $("#d8").click(function () {
           if ($(this).is(':checked')) {
-          localStorage.setItem("#d8",true);
-          } else {
-          localStorage.setItem("#d8",false);
-          }
-          $("#filter").submit();
+                localStorage.setItem("#d8",true);
+            } else {
+                localStorage.setItem("#d8",false);
+            }
+            $("#filter").submit();
           });
          </script>
     {% include 'footer.html' %}

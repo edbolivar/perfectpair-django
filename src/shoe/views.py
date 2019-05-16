@@ -77,7 +77,6 @@ def gender_male(request):
 
 def gender_female(request):
 
-
 	shoe_list = Shoe.objects.all()
 
 	context = {
@@ -112,13 +111,6 @@ def add_to_cart(request, shoe_id):
 
 	return render(request, template, context)
 
-def new_arrivals(request):
-	template = ''
-	context = {}
-
-	return render(request, template, context)
-
-
 def sidebar(request):
 	q1 = request.GET.get('Adidas')
 	q2 = request.GET.get('Nike')
@@ -127,7 +119,6 @@ def sidebar(request):
 	f2 = "Nike" if q2 == "on" else "1"
 	f3 = "Puma" if q3 == "on" else "1"
 	q4 = request.GET.get('s10')
-	print(q4)
 	q5 = request.GET.get('s9')
 	q6 = request.GET.get('s8')
 	f4 = 10 if q4 == "on" else 0
@@ -151,6 +142,7 @@ def sidebar(request):
 	products3 = Shoe.objects.filter(Q(color__icontains=f7)|Q(color__icontains=f8)|Q(color__icontains=f9))
 	products4 = Shoe.objects.filter(Q(price__exact=f10)|Q(price__exact=f11)|Q(price__exact=f12))
 	products = Shoe.objects.all()
+
 	if(products1):
 		products = products & products1
 	if(products2):
@@ -169,10 +161,52 @@ def sidebar(request):
 
 def men_sneakers(request):
     	
-	shoe_list = Shoe.objects.all()
+	system = request.POST.get('cart', None)
+	q1 = request.GET.get('Adidas')
+	q2 = request.GET.get('Nike')
+	q3 = request.GET.get('Puma')
+	f1 = "Adidas" if q1 == "on" else "1"
+	f2 = "Nike" if q2 == "on" else "1"
+	f3 = "Puma" if q3 == "on" else "1"
+	q4 = request.GET.get('s10')
+	q5 = request.GET.get('s9')
+	q6 = request.GET.get('s8')
+	f4 = 10 if q4 == "on" else 0
+	f5 = 9 if q5 == "on" else 0
+	f6 = 8 if q6 == "on" else 0
+	q7 = request.GET.get('blue')
+	q8 = request.GET.get('black')
+	q9 = request.GET.get('red')
+	f7 = "blue" if q7 == "on" else "1"
+	f8 = "black" if q8 == "on" else "1"
+	f9 = "red" if q9 == "on" else "1"
+	q10 = request.GET.get('d10')
+	q11 = request.GET.get('d9')
+	q12 = request.GET.get('d8')
+	f10 = 10 if q10 == "on" else 0
+	f11 = 9 if q11 == "on" else 0
+	f12 = 8 if q12 == "on" else 0
+	q13 = request.GET.get('All')
+
+	shoe_list = Shoe.objects.filter(style="sneakers").filter(gender="M")
+	products1 = Shoe.objects.filter(Q(brand__icontains=f1)|Q(brand__icontains=f2)|Q(brand__icontains=f3))
+	products2 = Shoe.objects.filter(Q(size__exact=f4)|Q(size__exact=f5)|Q(size__exact=f6))
+	products3 = Shoe.objects.filter(Q(color__icontains=f7)|Q(color__icontains=f8)|Q(color__icontains=f9))
+	products4 = Shoe.objects.filter(Q(price__exact=f10)|Q(price__exact=f11)|Q(price__exact=f12))
+	if products1.count()!=0:
+		shoe_list = shoe_list & products1
+	if products2.count()!=0:
+		shoe_list = shoe_list & products2
+	if products3.count()!=0:
+		shoe_list = shoe_list & products3
+	if products4.count()!=0:
+		shoe_list = shoe_list & products4
+	if ((products1.count(), products2.count(), products3.count(), products4.count())==(0,0,0,0)):
+		shoe_list = []
+		if q13=="on":
+			shoe_list = Shoe.objects.filter(style="sneakers").filter(gender="M")
 
 	context = {
-
 		'shoe_list': shoe_list, }
 
 	template = 'shoe/men_sneakers.html'
@@ -182,7 +216,50 @@ def men_sneakers(request):
 
 def men_business(request):
     	
-	shoe_list = Shoe.objects.all()
+	system = request.POST.get('cart', None)
+	q1 = request.GET.get('Adidas')
+	q2 = request.GET.get('Nike')
+	q3 = request.GET.get('Puma')
+	f1 = "Adidas" if q1 == "on" else "1"
+	f2 = "Nike" if q2 == "on" else "1"
+	f3 = "Puma" if q3 == "on" else "1"
+	q4 = request.GET.get('s10')
+	q5 = request.GET.get('s9')
+	q6 = request.GET.get('s8')
+	f4 = 10 if q4 == "on" else 0
+	f5 = 9 if q5 == "on" else 0
+	f6 = 8 if q6 == "on" else 0
+	q7 = request.GET.get('blue')
+	q8 = request.GET.get('black')
+	q9 = request.GET.get('red')
+	f7 = "blue" if q7 == "on" else "1"
+	f8 = "black" if q8 == "on" else "1"
+	f9 = "red" if q9 == "on" else "1"
+	q10 = request.GET.get('d10')
+	q11 = request.GET.get('d9')
+	q12 = request.GET.get('d8')
+	f10 = 10 if q10 == "on" else 0
+	f11 = 9 if q11 == "on" else 0
+	f12 = 8 if q12 == "on" else 0
+	q13 = request.GET.get('All')
+
+	shoe_list = Shoe.objects.filter(style="business").filter(gender="M")
+	products1 = Shoe.objects.filter(Q(brand__icontains=f1)|Q(brand__icontains=f2)|Q(brand__icontains=f3))
+	products2 = Shoe.objects.filter(Q(size__exact=f4)|Q(size__exact=f5)|Q(size__exact=f6))
+	products3 = Shoe.objects.filter(Q(color__icontains=f7)|Q(color__icontains=f8)|Q(color__icontains=f9))
+	products4 = Shoe.objects.filter(Q(price__exact=f10)|Q(price__exact=f11)|Q(price__exact=f12))
+	if products1.count()!=0:
+		shoe_list = shoe_list & products1
+	if products2.count()!=0:
+		shoe_list = shoe_list & products2
+	if products3.count()!=0:
+		shoe_list = shoe_list & products3
+	if products4.count()!=0:
+		shoe_list = shoe_list & products4
+	if ((products1.count(), products2.count(), products3.count(), products4.count())==(0,0,0,0)):
+		shoe_list = []
+		if q13=="on":
+			shoe_list = Shoe.objects.filter(style="business").filter(gender="M")
 
 	context = {
 
@@ -197,7 +274,51 @@ def men_business(request):
 
 def men_casual(request):
     	
-	shoe_list = Shoe.objects.all()
+	system = request.POST.get('cart', None)
+	q1 = request.GET.get('Adidas')
+	q2 = request.GET.get('Nike')
+	q3 = request.GET.get('Puma')
+	f1 = "Adidas" if q1 == "on" else "1"
+	f2 = "Nike" if q2 == "on" else "1"
+	f3 = "Puma" if q3 == "on" else "1"
+	q4 = request.GET.get('s10')
+	q5 = request.GET.get('s9')
+	q6 = request.GET.get('s8')
+	f4 = 10 if q4 == "on" else 0
+	f5 = 9 if q5 == "on" else 0
+	f6 = 8 if q6 == "on" else 0
+	q7 = request.GET.get('blue')
+	q8 = request.GET.get('black')
+	q9 = request.GET.get('red')
+	f7 = "blue" if q7 == "on" else "1"
+	f8 = "black" if q8 == "on" else "1"
+	f9 = "red" if q9 == "on" else "1"
+	q10 = request.GET.get('d10')
+	q11 = request.GET.get('d9')
+	q12 = request.GET.get('d8')
+	f10 = 10 if q10 == "on" else 0
+	f11 = 9 if q11 == "on" else 0
+	f12 = 8 if q12 == "on" else 0
+	q13 = request.GET.get('All')
+
+	shoe_list = Shoe.objects.filter(style="casual").filter(gender="M")
+	products1 = Shoe.objects.filter(Q(brand__icontains=f1)|Q(brand__icontains=f2)|Q(brand__icontains=f3))
+	products2 = Shoe.objects.filter(Q(size__exact=f4)|Q(size__exact=f5)|Q(size__exact=f6))
+	products3 = Shoe.objects.filter(Q(color__icontains=f7)|Q(color__icontains=f8)|Q(color__icontains=f9))
+	products4 = Shoe.objects.filter(Q(price__exact=f10)|Q(price__exact=f11)|Q(price__exact=f12))
+	if products1.count()!=0:
+		shoe_list = shoe_list & products1
+	if products2.count()!=0:
+		shoe_list = shoe_list & products2
+	if products3.count()!=0:
+		shoe_list = shoe_list & products3
+	if products4.count()!=0:
+		shoe_list = shoe_list & products4
+	if ((products1.count(), products2.count(), products3.count(), products4.count())==(0,0,0,0)):
+		shoe_list = []
+		if q13=="on":
+			shoe_list = Shoe.objects.filter(style="casual").filter(gender="M")
+
 
 	context = {
 
@@ -237,31 +358,25 @@ def men_boots(request):
 	f10 = 10 if q10 == "on" else 0
 	f11 = 9 if q11 == "on" else 0
 	f12 = 8 if q12 == "on" else 0
+	q13 = request.GET.get('All')
 
+	shoe_list = Shoe.objects.filter(style="boot").filter(gender="M")
 	products1 = Shoe.objects.filter(Q(brand__icontains=f1)|Q(brand__icontains=f2)|Q(brand__icontains=f3))
 	products2 = Shoe.objects.filter(Q(size__exact=f4)|Q(size__exact=f5)|Q(size__exact=f6))
 	products3 = Shoe.objects.filter(Q(color__icontains=f7)|Q(color__icontains=f8)|Q(color__icontains=f9))
 	products4 = Shoe.objects.filter(Q(price__exact=f10)|Q(price__exact=f11)|Q(price__exact=f12))
-	shoe_list = Shoe.objects.filter(style="boot").filter(gender="M")
-	print(shoe_list)
-	if products1.count()!=0 :
+	if products1.count()!=0:
 		shoe_list = shoe_list & products1
-	else:
-		shoe_list = shoe_list | products1
-	if products2.count()!=0 :
+	if products2.count()!=0:
 		shoe_list = shoe_list & products2
-	else:
-		shoe_list = shoe_list | products2
-	if products3.count()!=0  :
+	if products3.count()!=0:
 		shoe_list = shoe_list & products3
-	else:
-		shoe_list = shoe_list | products3
-	if products4.count()!=0 :
+	if products4.count()!=0:
 		shoe_list = shoe_list & products4
-	else:
-		shoe_list = shoe_list | products4
-	# if ((products1.count(), products2.count(), products3.count(), products4.count())==(0,0,0,0)):
-	# 	shoe_list = []
+	if ((products1.count(), products2.count(), products3.count(), products4.count())==(0,0,0,0)):
+		shoe_list = []
+		if q13=="on":
+			shoe_list=Shoe.objects.filter(style="boot").filter(gender="M")
 	
 	context = {
 		'shoe_list': shoe_list,
@@ -275,8 +390,51 @@ def men_boots(request):
 
 def men_sandals(request):
     
+	system = request.POST.get('cart', None)
+	q1 = request.GET.get('Adidas')
+	q2 = request.GET.get('Nike')
+	q3 = request.GET.get('Puma')
+	f1 = "Adidas" if q1 == "on" else "1"
+	f2 = "Nike" if q2 == "on" else "1"
+	f3 = "Puma" if q3 == "on" else "1"
+	q4 = request.GET.get('s10')
+	q5 = request.GET.get('s9')
+	q6 = request.GET.get('s8')
+	f4 = 10 if q4 == "on" else 0
+	f5 = 9 if q5 == "on" else 0
+	f6 = 8 if q6 == "on" else 0
+	q7 = request.GET.get('blue')
+	q8 = request.GET.get('black')
+	q9 = request.GET.get('red')
+	f7 = "blue" if q7 == "on" else "1"
+	f8 = "black" if q8 == "on" else "1"
+	f9 = "red" if q9 == "on" else "1"
+	q10 = request.GET.get('d10')
+	q11 = request.GET.get('d9')
+	q12 = request.GET.get('d8')
+	f10 = 10 if q10 == "on" else 0
+	f11 = 9 if q11 == "on" else 0
+	f12 = 8 if q12 == "on" else 0
+	q13 = request.GET.get('All')
+
+	shoe_list = Shoe.objects.filter(style="sandal").filter(gender="M")
+	products1 = Shoe.objects.filter(Q(brand__icontains=f1)|Q(brand__icontains=f2)|Q(brand__icontains=f3))
+	products2 = Shoe.objects.filter(Q(size__exact=f4)|Q(size__exact=f5)|Q(size__exact=f6))
+	products3 = Shoe.objects.filter(Q(color__icontains=f7)|Q(color__icontains=f8)|Q(color__icontains=f9))
+	products4 = Shoe.objects.filter(Q(price__exact=f10)|Q(price__exact=f11)|Q(price__exact=f12))
+	if products1.count()!=0:
+		shoe_list = shoe_list & products1
+	if products2.count()!=0:
+		shoe_list = shoe_list & products2
+	if products3.count()!=0:
+		shoe_list = shoe_list & products3
+	if products4.count()!=0:
+		shoe_list = shoe_list & products4
+	if ((products1.count(), products2.count(), products3.count(), products4.count())==(0,0,0,0)):
+		shoe_list = []
+		if q13=="on":
+			shoe_list = Shoe.objects.filter(style="sandal").filter(gender="M")
 	template = 'shoe/men_sandals.html'
-	shoe_list = Shoe.objects.all()
 	context = {
 		'shoe_list': shoe_list,
 	}
@@ -286,8 +444,52 @@ def men_sandals(request):
 
 
 def women_sneakers(request):
+
+	system = request.POST.get('cart', None)
+	q1 = request.GET.get('Adidas')
+	q2 = request.GET.get('Nike')
+	q3 = request.GET.get('Puma')
+	f1 = "Adidas" if q1 == "on" else "1"
+	f2 = "Nike" if q2 == "on" else "1"
+	f3 = "Puma" if q3 == "on" else "1"
+	q4 = request.GET.get('s10')
+	q5 = request.GET.get('s9')
+	q6 = request.GET.get('s8')
+	f4 = 10 if q4 == "on" else 0
+	f5 = 9 if q5 == "on" else 0
+	f6 = 8 if q6 == "on" else 0
+	q7 = request.GET.get('blue')
+	q8 = request.GET.get('black')
+	q9 = request.GET.get('red')
+	f7 = "blue" if q7 == "on" else "1"
+	f8 = "black" if q8 == "on" else "1"
+	f9 = "red" if q9 == "on" else "1"
+	q10 = request.GET.get('d10')
+	q11 = request.GET.get('d9')
+	q12 = request.GET.get('d8')
+	f10 = 10 if q10 == "on" else 0
+	f11 = 9 if q11 == "on" else 0
+	f12 = 8 if q12 == "on" else 0
+	q13 = request.GET.get('All')
+
+	shoe_list = Shoe.objects.filter(style="sneakers").filter(gender="F")
+	products1 = Shoe.objects.filter(Q(brand__icontains=f1)|Q(brand__icontains=f2)|Q(brand__icontains=f3))
+	products2 = Shoe.objects.filter(Q(size__exact=f4)|Q(size__exact=f5)|Q(size__exact=f6))
+	products3 = Shoe.objects.filter(Q(color__icontains=f7)|Q(color__icontains=f8)|Q(color__icontains=f9))
+	products4 = Shoe.objects.filter(Q(price__exact=f10)|Q(price__exact=f11)|Q(price__exact=f12))
+	if products1.count()!=0:
+		shoe_list = shoe_list & products1
+	if products2.count()!=0:
+		shoe_list = shoe_list & products2
+	if products3.count()!=0:
+		shoe_list = shoe_list & products3
+	if products4.count()!=0:
+		shoe_list = shoe_list & products4
+	if ((products1.count(), products2.count(), products3.count(), products4.count())==(0,0,0,0)):
+		shoe_list = []
+		if q13=="on":
+			shoe_list = Shoe.objects.filter(style="sneakers").filter(gender="F")
 	template = 'shoe/women_sneakers.html'
-	shoe_list = Shoe.objects.all()
 	context = {
 
 		'shoe_list': shoe_list,
@@ -297,8 +499,51 @@ def women_sneakers(request):
 
 
 def women_flats(request):
+	system = request.POST.get('cart', None)
+	q1 = request.GET.get('Adidas')
+	q2 = request.GET.get('Nike')
+	q3 = request.GET.get('Puma')
+	f1 = "Adidas" if q1 == "on" else "1"
+	f2 = "Nike" if q2 == "on" else "1"
+	f3 = "Puma" if q3 == "on" else "1"
+	q4 = request.GET.get('s10')
+	q5 = request.GET.get('s9')
+	q6 = request.GET.get('s8')
+	f4 = 10 if q4 == "on" else 0
+	f5 = 9 if q5 == "on" else 0
+	f6 = 8 if q6 == "on" else 0
+	q7 = request.GET.get('blue')
+	q8 = request.GET.get('black')
+	q9 = request.GET.get('red')
+	f7 = "blue" if q7 == "on" else "1"
+	f8 = "black" if q8 == "on" else "1"
+	f9 = "red" if q9 == "on" else "1"
+	q10 = request.GET.get('d10')
+	q11 = request.GET.get('d9')
+	q12 = request.GET.get('d8')
+	f10 = 10 if q10 == "on" else 0
+	f11 = 9 if q11 == "on" else 0
+	f12 = 8 if q12 == "on" else 0
+	q13 = request.GET.get('All')
+
+	shoe_list = Shoe.objects.filter(style="flat").filter(gender="F")
+	products1 = Shoe.objects.filter(Q(brand__icontains=f1)|Q(brand__icontains=f2)|Q(brand__icontains=f3))
+	products2 = Shoe.objects.filter(Q(size__exact=f4)|Q(size__exact=f5)|Q(size__exact=f6))
+	products3 = Shoe.objects.filter(Q(color__icontains=f7)|Q(color__icontains=f8)|Q(color__icontains=f9))
+	products4 = Shoe.objects.filter(Q(price__exact=f10)|Q(price__exact=f11)|Q(price__exact=f12))
+	if products1.count()!=0:
+		shoe_list = shoe_list & products1
+	if products2.count()!=0:
+		shoe_list = shoe_list & products2
+	if products3.count()!=0:
+		shoe_list = shoe_list & products3
+	if products4.count()!=0:
+		shoe_list = shoe_list & products4
+	if ((products1.count(), products2.count(), products3.count(), products4.count())==(0,0,0,0)):
+		shoe_list = []
+		if q13=="on":
+			shoe_list = Shoe.objects.filter(style="flat").filter(gender="F")
 	template = 'shoe/women_flats.html'
-	shoe_list = Shoe.objects.all()
 	context = {
 		'shoe_list': shoe_list,
 	}
@@ -307,8 +552,52 @@ def women_flats(request):
 
 
 def women_pumps(request):
+	
+	system = request.POST.get('cart', None)
+	q1 = request.GET.get('Adidas')
+	q2 = request.GET.get('Nike')
+	q3 = request.GET.get('Puma')
+	f1 = "Adidas" if q1 == "on" else "1"
+	f2 = "Nike" if q2 == "on" else "1"
+	f3 = "Puma" if q3 == "on" else "1"
+	q4 = request.GET.get('s10')
+	q5 = request.GET.get('s9')
+	q6 = request.GET.get('s8')
+	f4 = 10 if q4 == "on" else 0
+	f5 = 9 if q5 == "on" else 0
+	f6 = 8 if q6 == "on" else 0
+	q7 = request.GET.get('blue')
+	q8 = request.GET.get('black')
+	q9 = request.GET.get('red')
+	f7 = "blue" if q7 == "on" else "1"
+	f8 = "black" if q8 == "on" else "1"
+	f9 = "red" if q9 == "on" else "1"
+	q10 = request.GET.get('d10')
+	q11 = request.GET.get('d9')
+	q12 = request.GET.get('d8')
+	f10 = 10 if q10 == "on" else 0
+	f11 = 9 if q11 == "on" else 0
+	f12 = 8 if q12 == "on" else 0
+	q13 = request.GET.get('All')
+
+	shoe_list = Shoe.objects.filter(style="pump").filter(gender="F")
+	products1 = Shoe.objects.filter(Q(brand__icontains=f1)|Q(brand__icontains=f2)|Q(brand__icontains=f3))
+	products2 = Shoe.objects.filter(Q(size__exact=f4)|Q(size__exact=f5)|Q(size__exact=f6))
+	products3 = Shoe.objects.filter(Q(color__icontains=f7)|Q(color__icontains=f8)|Q(color__icontains=f9))
+	products4 = Shoe.objects.filter(Q(price__exact=f10)|Q(price__exact=f11)|Q(price__exact=f12))
+	if products1.count()!=0:
+		shoe_list = shoe_list & products1
+	if products2.count()!=0:
+		shoe_list = shoe_list & products2
+	if products3.count()!=0:
+		shoe_list = shoe_list & products3
+	if products4.count()!=0:
+		shoe_list = shoe_list & products4
+	if ((products1.count(), products2.count(), products3.count(), products4.count())==(0,0,0,0)):
+		shoe_list = []
+		if q13=="on":
+			shoe_list = Shoe.objects.filter(style="pump").filter(gender="F")
 	template = 'shoe/women_pumps.html'
-	shoe_list = Shoe.objects.all()
 	context = {
 
 		'shoe_list': shoe_list,
@@ -318,8 +607,51 @@ def women_pumps(request):
 
 
 def women_boots(request):
+	system = request.POST.get('cart', None)
+	q1 = request.GET.get('Adidas')
+	q2 = request.GET.get('Nike')
+	q3 = request.GET.get('Puma')
+	f1 = "Adidas" if q1 == "on" else "1"
+	f2 = "Nike" if q2 == "on" else "1"
+	f3 = "Puma" if q3 == "on" else "1"
+	q4 = request.GET.get('s10')
+	q5 = request.GET.get('s9')
+	q6 = request.GET.get('s8')
+	f4 = 10 if q4 == "on" else 0
+	f5 = 9 if q5 == "on" else 0
+	f6 = 8 if q6 == "on" else 0
+	q7 = request.GET.get('blue')
+	q8 = request.GET.get('black')
+	q9 = request.GET.get('red')
+	f7 = "blue" if q7 == "on" else "1"
+	f8 = "black" if q8 == "on" else "1"
+	f9 = "red" if q9 == "on" else "1"
+	q10 = request.GET.get('d10')
+	q11 = request.GET.get('d9')
+	q12 = request.GET.get('d8')
+	f10 = 10 if q10 == "on" else 0
+	f11 = 9 if q11 == "on" else 0
+	f12 = 8 if q12 == "on" else 0
+	q13 = request.GET.get('All')
+
+	shoe_list = Shoe.objects.filter(style="boot").filter(gender="F")
+	products1 = Shoe.objects.filter(Q(brand__icontains=f1)|Q(brand__icontains=f2)|Q(brand__icontains=f3))
+	products2 = Shoe.objects.filter(Q(size__exact=f4)|Q(size__exact=f5)|Q(size__exact=f6))
+	products3 = Shoe.objects.filter(Q(color__icontains=f7)|Q(color__icontains=f8)|Q(color__icontains=f9))
+	products4 = Shoe.objects.filter(Q(price__exact=f10)|Q(price__exact=f11)|Q(price__exact=f12))
+	if products1.count()!=0:
+		shoe_list = shoe_list & products1
+	if products2.count()!=0:
+		shoe_list = shoe_list & products2
+	if products3.count()!=0:
+		shoe_list = shoe_list & products3
+	if products4.count()!=0:
+		shoe_list = shoe_list & products4
+	if ((products1.count(), products2.count(), products3.count(), products4.count())==(0,0,0,0)):
+		shoe_list = []
+		if q13=="on":
+			shoe_list = Shoe.objects.filter(style="boot").filter(gender="F")
 	template = 'shoe/women_boots.html'
-	shoe_list = Shoe.objects.all()
 	context = {
 
 		'shoe_list': shoe_list,
@@ -329,8 +661,52 @@ def women_boots(request):
 
 
 def women_sandals(request):
+
+	system = request.POST.get('cart', None)
+	q1 = request.GET.get('Adidas')
+	q2 = request.GET.get('Nike')
+	q3 = request.GET.get('Puma')
+	f1 = "Adidas" if q1 == "on" else "1"
+	f2 = "Nike" if q2 == "on" else "1"
+	f3 = "Puma" if q3 == "on" else "1"
+	q4 = request.GET.get('s10')
+	q5 = request.GET.get('s9')
+	q6 = request.GET.get('s8')
+	f4 = 10 if q4 == "on" else 0
+	f5 = 9 if q5 == "on" else 0
+	f6 = 8 if q6 == "on" else 0
+	q7 = request.GET.get('blue')
+	q8 = request.GET.get('black')
+	q9 = request.GET.get('red')
+	f7 = "blue" if q7 == "on" else "1"
+	f8 = "black" if q8 == "on" else "1"
+	f9 = "red" if q9 == "on" else "1"
+	q10 = request.GET.get('d10')
+	q11 = request.GET.get('d9')
+	q12 = request.GET.get('d8')
+	f10 = 10 if q10 == "on" else 0
+	f11 = 9 if q11 == "on" else 0
+	f12 = 8 if q12 == "on" else 0
+	q13 = request.GET.get('All')
+
+	shoe_list = Shoe.objects.filter(style="sandal").filter(gender="F")
+	products1 = Shoe.objects.filter(Q(brand__icontains=f1)|Q(brand__icontains=f2)|Q(brand__icontains=f3))
+	products2 = Shoe.objects.filter(Q(size__exact=f4)|Q(size__exact=f5)|Q(size__exact=f6))
+	products3 = Shoe.objects.filter(Q(color__icontains=f7)|Q(color__icontains=f8)|Q(color__icontains=f9))
+	products4 = Shoe.objects.filter(Q(price__exact=f10)|Q(price__exact=f11)|Q(price__exact=f12))
+	if products1.count()!=0:
+		shoe_list = shoe_list & products1
+	if products2.count()!=0:
+		shoe_list = shoe_list & products2
+	if products3.count()!=0:
+		shoe_list = shoe_list & products3
+	if products4.count()!=0:
+		shoe_list = shoe_list & products4
+	if ((products1.count(), products2.count(), products3.count(), products4.count())==(0,0,0,0)):
+		shoe_list = []
+		if q13=="on":
+			shoe_list = Shoe.objects.filter(style="sandal").filter(gender="F")
 	template = 'shoe/women_sandals.html'
-	shoe_list = Shoe.objects.all()
 	context = {
 
 		'shoe_list': shoe_list,
@@ -364,31 +740,25 @@ def new_arrivals(request):
 	f10 = 10 if q10 == "on" else 0
 	f11 = 9 if q11 == "on" else 0
 	f12 = 8 if q12 == "on" else 0
+	q13 = request.GET.get('All')
 
+	shoe_list = Shoe.objects.filter(new=True)
 	products1 = Shoe.objects.filter(Q(brand__icontains=f1)|Q(brand__icontains=f2)|Q(brand__icontains=f3))
 	products2 = Shoe.objects.filter(Q(size__exact=f4)|Q(size__exact=f5)|Q(size__exact=f6))
 	products3 = Shoe.objects.filter(Q(color__icontains=f7)|Q(color__icontains=f8)|Q(color__icontains=f9))
 	products4 = Shoe.objects.filter(Q(price__exact=f10)|Q(price__exact=f11)|Q(price__exact=f12))
-	shoe_list = Shoe.objects.filter(new=True)
-	if products1.count()!=0 :
+	if products1.count()!=0:
 		shoe_list = shoe_list & products1
-	else:
-		shoe_list = shoe_list | products1
-	if products2.count()!=0 :
+	if products2.count()!=0:
 		shoe_list = shoe_list & products2
-	else:
-		shoe_list = shoe_list | products2
-	if products3.count()!=0  :
+	if products3.count()!=0:
 		shoe_list = shoe_list & products3
-	else:
-		shoe_list = shoe_list | products3
-	if products4.count()!=0 :
+	if products4.count()!=0:
 		shoe_list = shoe_list & products4
-	else:
-		shoe_list = shoe_list | products4
-	# if ((products1.count(), products2.count(), products3.count(), products4.count())==(0,0,0,0)):
-	# 	shoe_list = []
-
+	if ((products1.count(), products2.count(), products3.count(), products4.count())==(0,0,0,0)):
+		shoe_list = []
+		if q13=="on":
+			shoe_list = Shoe.objects.filter(new=True)
 	template = 'shoe/new_arrivals.html'
 	context = {
 

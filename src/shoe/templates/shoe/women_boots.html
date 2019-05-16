@@ -2,14 +2,6 @@
 {% load static %}
 {% block content %}
 
-
-<h1 class="title">Women Boots</h1>
-    <svg class="pulse" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"
-        xmlns:xlink="http://www.w3.org/1999/xlink">
-        <circle id="Oval" cx="512" cy="512" r="512"></circle>
-        <circle id="Oval" cx="512" cy="512" r="512"></circle>
-        <circle id="Oval" cx="512" cy="512" r="512"></circle>
-    </svg>
 <style>
     @import url("https://fonts.googleapis.com/css?family=Lobster+Two");
 
@@ -90,7 +82,10 @@
         grid-template-columns: repeat(5, 1fr);
         grid-gap: 10px;
         grid-auto-rows: minmax(10px, auto);
-        background-color: rgb(238, 238, 238);
+    }
+
+    .d-flex {
+        background-color: rgb(238, 238, 238) !important;
     }
 
     .ele-text {
@@ -100,58 +95,285 @@
     .card {
         left: 10% !important;
     }
+
+    .li {
+        list-style: none !important;
+    }
+
+    #sidebar-wrapper {
+        min-height: 20vh;
+        margin-left: -15rem;
+        -webkit-transition: margin .25s ease-out;
+        -moz-transition: margin .25s ease-out;
+        -o-transition: margin .25s ease-out;
+        transition: margin .25s ease-out;
+    }
+
+    #sidebar-wrapper .sidebar-heading {
+        padding: 0.875rem 1.25rem;
+        font-size: 1.2rem;
+    }
+
+    #sidebar-wrapper .list-group {
+        width: 15rem;
+    }
+
+    /* #page-content-wrapper {
+        min-width: 100vw;
+    } */
+
+    #wrapper.toggled #sidebar-wrapper {
+        margin-left: 0;
+    }
 </style>
+<div style="position:relative;">
+    <h1 class="title">Women Boots</h1>
+    <button class="btn fas fa-bars fa-2x" id="menu-toggle" style="position:absolute; top:0;"></button>
+</div>
+<svg class="pulse" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink">
+    <circle id="Oval" cx="512" cy="512" r="512"></circle>
+    <circle id="Oval" cx="512" cy="512" r="512"></circle>
+    <circle id="Oval" cx="512" cy="512" r="512"></circle>
+</svg>
+<div class="d-flex toggled" id="wrapper">
 
+    <div class="bg-light border-right" id="sidebar-wrapper">
+        <div class="sidebar-heading">Filter By</div>
+        <div class="list-group list-group-flush">
+            <form action='/shoe/women_boots' id="filter" autocomplete="off">
+                <ul class="sub-menu dropdown" id="brand">
+                    <li class="active li filter"><a href="#"><input type="checkbox" name="All" id="All">
+                            All</a></li>
+                </ul>
 
-        <div class='grid mr-2'>
+                <li class="li" data-toggle="collapse" data-target="#brand">
+                    <a href="#" class="list-group-item list-group-item-action bg-light title">Brand</a>
+                </li>
+
+                <ul class="sub-menu dropdown" id="brand">
+                    <li class="active li filter"><a href="#"><input type="checkbox" name="Adidas" id="Adidas">
+                            ADIDAS</a></li>
+                    <li class="li filter"><a href="#"><input type="checkbox" name="Nike" id="Nike"> NIKE</a></li>
+                    <li class="li filter"><a href="#"><input type="checkbox" name="Puma" id="Puma"> PUMA</a></li>
+                </ul>
+
+                <li class="li" data-toggle="collapse" data-target="#size">
+                    <a href="#" class="list-group-item list-group-item-action bg-light title">Size</a>
+                </li>
+
+                <ul class="sub-menu dropdown" id="size">
+                    <li class="active li filter"><a href="#"><input type="checkbox" name="s10" id="s10"> Size 10</a>
+                    </li>
+                    <li class="li filter"><a href="#"><input type="checkbox" name="s9" id="s9"> Size 9</a></li>
+                    <li class="li filter"><a href="#"><input type="checkbox" name="s8" id="s8"> Size 8</a></li>
+                </ul>
+
+                <li class="li" data-toggle="collapse" data-target="#color">
+                    <a href="#" class="list-group-item list-group-item-action bg-light title">Color</a>
+                </li>
+
+                <ul class="sub-menu dropdown" id="color">
+                    <li class="active li filter"><a href="#"><input type="checkbox" name="blue" id="blue"> Blue</a></li>
+                    <li class="li filter"><a href="#"><input type="checkbox" name="black" id="black"> Black</a></li>
+                    <li class="li filter"><a href="#"><input type="checkbox" name="red" id="red"> Red</a></li>
+                </ul>
+
+                <li class="li" data-toggle="collapse" data-target="#price">
+                    <a href="#" class="list-group-item list-group-item-action bg-light title">Price</a>
+                </li>
+
+                <ul class="sub-menu dropdown" id="price">
+                    <li class="active li filter"><a href="#"><input type="checkbox" name="d10" id="d10"> $10</a></li>
+                    <li class="li filter"><a href="#"><input type="checkbox" name="d9" id="d9"> $9</a></li>
+                    <li class="li filter"><a href="#"><input type="checkbox" name="d8" id="d8"> $8</a></li>
+                </ul>
+                <!-- <ul class="sum-menu">
+          <input class="btn btn-primary" type="submit" value="Filter">
+        </ul> -->
+            </form>
+        </div>
+    </div>
+    <form id="filter">
+        <div class='mr-2 grid'>
             {% for shoe in shoe_list %}
-                {% if shoe.style == 'boot' and shoe.gender == 'F' %}
-                    <div class="mb-4 mt-4 card text-left" style="width:16rem;">
-                        <img src="{{shoe.image.url}}" class="card-img-top" style="width:254px; height:250px">
+            <div class="mb-4 mt-4 card text-left" style="width:16rem;">
+                <img src="{{shoe.image.url}}" class="card-img-top" style="width:254px; height:250px">
 
-                        <div class="card-body" class="shadow-lg p-3 mb-5 bg-white rounded">
-                            <h5 class="card-title">{{shoe.name}}</h5>
-                            <p class="card-text ele-text">
-                                <span>Type:</span>
-                                <span style="float:right;">{{shoe.style}}</span>
-                            </p>
-                            <p class="card-text ele-text">
-                                <span>Size: </span>
-                                <span style="float:right;">{{shoe.size}}</span>
-                            </p>
-                            <p class="card-text ele-text">
-                                <span>Price:</span>
-                                <span
-                                    style="float:right;color:turquoise; font-size: 25px!important;">${{shoe.price}}</span>
-                            </p>
-                            <p class="card-text ele-text">
-                                <span>Only</span>
-                                <span style="float:right">{{shoe.stock}} available</span>
-                            </p>
-                            <p class="card-text ele-text">
-                                <span>Available: </span>
-                                <span style="float:right">{{shoe.availability}}</span>
-                            </p>
-
-                            <div>
-                                <a href="{% url 'shoe:cart_list' shoe_id=shoe.pk %}" class="btn btn-primary"
-                                    style="background-color:turquoise; border-color: turquoise;" name='q1'>
-                                    <i class="fas fa-shopping-cart fa-lg"></i>
-                                    Add to cart</a>
-                                <div style="float:right">
-                                    <input id="apto" type="checkbox" {% if shoe.like %} checked{% endif %}>
-                                    <label for="apto"><a href="{% url 'shoe:like' shoe_id=shoe.pk %}">Liked</a></label>
-                                </div>
-                            </div>
+                <div class="card-body" class="shadow-lg p-3 mb-5 bg-white rounded">
+                    <h5 class="card-title">{{shoe.name}}</h5>
+                    <p class="card-text ele-text">
+                        <span>Type:</span>
+                        <span style="float:right;">{{shoe.style}}</span>
+                    </p>
+                    <p class="card-text ele-text">
+                        <span>Size: </span>
+                        <span style="float:right;">{{shoe.size}}</span>
+                    </p>
+                    <p class="card-text ele-text">
+                        <span>Price:</span>
+                        <span style="float:right;color:turquoise; font-size: 25px!important;">${{shoe.price}}</span>
+                    </p>
+                    <p class="card-text ele-text">
+                        <span>Only</span>
+                        <span style="float:right">{{shoe.stock}} available</span>
+                    </p>
+                    <p class="card-text ele-text">
+                        <span>Available: </span>
+                        <span style="float:right">{{shoe.availability}}</span>
+                    </p>
+                    <div>
+                        <a href="{% url 'shoe:cart_list' shoe_id=shoe.pk %}" class="btn btn-primary"
+                            style="background-color:turquoise; border-color: turquoise;" name='q1'>
+                            <i class="fas fa-shopping-cart fa-lg"></i>
+                            Add to cart</a>
+                        <div style="float:right">
+                            <input id="apto" type="checkbox" {% if shoe.like %} checked{% endif %}>
+                            <label for="apto"><a href="{% url 'shoe:like' shoe_id=shoe.pk %}">Liked</a></label>
                         </div>
                     </div>
-                {% endif %}
+                </div>
+            </div>
             {% endfor %}
         </div>
+    </form>
+</div>
+<script type="text/javascript">
+    $("#menu-toggle").click(function (e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+    $(document).ready(function () {
+        $('#All').attr('checked', localStorage.getItem("#All") == 'true' ? true : false);
+        $('#Adidas').attr('checked', localStorage.getItem("#Adidas") == 'true' ? true : false);
+        $('#Nike').attr('checked', localStorage.getItem("#Nike") == 'true' ? true : false);
+        $('#Puma').attr('checked', localStorage.getItem("#Puma") == 'true' ? true : false);
 
+        $('#s10').attr('checked', localStorage.getItem("#s10") == 'true' ? true : false);
+        $('#s9').attr('checked', localStorage.getItem("#s9") == 'true' ? true : false);
+        $('#s8').attr('checked', localStorage.getItem("#s8") == 'true' ? true : false);
 
+        $('#blue').attr('checked', localStorage.getItem("#blue") == 'true' ? true : false);
+        $('#black').attr('checked', localStorage.getItem("#black") == 'true' ? true : false);
+        $('#red').attr('checked', localStorage.getItem("#red") == 'true' ? true : false);
 
+        $('#d10').attr('checked', localStorage.getItem("#d10") == 'true' ? true : false);
+        $('#d9').attr('checked', localStorage.getItem("#d9") == 'true' ? true : false);
+        $('#d8').attr('checked', localStorage.getItem("#d8") == 'true' ? true : false);
+    });
+    $("#All").click(function () {
+        if ($(this).is(':checked')) {
+            localStorage.setItem("#All", true);
+        } else {
+            localStorage.setItem("#All", false);
+        }
+        $("#filter").submit();
+    });
 
+    $("#Adidas").click(function () {
+        if ($(this).is(':checked')) {
+            localStorage.setItem("#Adidas", true);
+        } else {
+            localStorage.setItem("#Adidas", false);
+        }
+
+        $("#filter").submit();
+    });
+    $("#Nike").click(function () {
+        if ($(this).is(':checked')) {
+            localStorage.setItem("#Nike", true);
+        } else {
+            localStorage.setItem("#Nike", false);
+        }
+        $("#filter").submit();
+    });
+
+    $("#Puma").click(function () {
+        if ($(this).is(':checked')) {
+            localStorage.setItem("#Puma", true);
+        } else {
+            localStorage.setItem("#Puma", false);
+        }
+        $("#filter").submit();
+    });
+
+    $("#s10").click(function () {
+        if ($(this).is(':checked')) {
+            localStorage.setItem("#s10", true);
+        } else {
+            localStorage.setItem("#s10", false);
+        }
+        $("#filter").submit();
+    });
+    $("#s9").click(function () {
+        if ($(this).is(':checked')) {
+            localStorage.setItem("#s9", true);
+        } else {
+            localStorage.setItem("#s9", false);
+        }
+        $("#filter").submit();
+    });
+    $("#s8").click(function () {
+        if ($(this).is(':checked')) {
+            localStorage.setItem("#s8", true);
+        } else {
+            localStorage.setItem("#s8", false);
+        }
+        $("#filter").submit();
+    });
+
+    $("#blue").click(function () {
+        if ($(this).is(':checked')) {
+            localStorage.setItem("#blue", true);
+        } else {
+            localStorage.setItem("#blue", false);
+        }
+        $("#filter").submit();
+    });
+    $("#black").click(function () {
+        if ($(this).is(':checked')) {
+            localStorage.setItem("#black", true);
+        } else {
+            localStorage.setItem("#black", false);
+        }
+        $("#filter").submit();
+    });
+    $("#red").click(function () {
+        if ($(this).is(':checked')) {
+            localStorage.setItem("#red", true);
+        } else {
+            localStorage.setItem("#red", false);
+        }
+        $("#filter").submit();
+    });
+
+    $("#d10").click(function () {
+        if ($(this).is(':checked')) {
+            localStorage.setItem("#d10", true);
+        } else {
+            localStorage.setItem("#d10", false);
+        }
+        $("#filter").submit();
+    });
+
+    $("#d9").click(function () {
+        if ($(this).is(':checked')) {
+            localStorage.setItem("#d9", true);
+        } else {
+            localStorage.setItem("#d9", false);
+        }
+        $("#filter").submit();
+    });
+
+    $("#d8").click(function () {
+        if ($(this).is(':checked')) {
+            localStorage.setItem("#d8", true);
+        } else {
+            localStorage.setItem("#d8", false);
+        }
+        $("#filter").submit();
+    });
+</script>
 {% include 'footer.html' %}
 
 {% endblock %}
